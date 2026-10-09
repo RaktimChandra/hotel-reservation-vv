@@ -1,0 +1,170 @@
+{
+ "summary": {
+  "seeded": 12,
+  "seeded_detected": 11,
+  "detection_pct": 91.7,
+  "native_found": 4,
+  "mills_estimated_native_total": 4.36,
+  "estimated_latent": 0.36
+ },
+ "faults": [
+  {
+   "id": "SF-01",
+   "file": "app/domain/validation.py",
+   "description": "Off-by-one on maximum name length",
+   "expected_level": "Unit",
+   "detected": true,
+   "failing_tests": 1,
+   "detected_by": [
+    "TC-REG-BVA-006"
+   ],
+   "seconds": 32.9
+  },
+  {
+   "id": "SF-02",
+   "file": "app/domain/pricing.py",
+   "description": "Weekend surcharge applied to Sat/Sun instead of Fri/Sat",
+   "expected_level": "Unit",
+   "detected": true,
+   "failing_tests": 7,
+   "detected_by": [
+    "TC-PRC-CEG-002",
+    "TC-PRC-ECP-017",
+    "TC-PRC-ECP-019",
+    "TC-QTE-PW-005",
+    "TC-QTE-PW-010",
+    "TC-QTE-PW-011",
+    "TC-QTE-PW-013"
+   ],
+   "seconds": 31.3
+  },
+  {
+   "id": "SF-03",
+   "file": "app/domain/pricing.py",
+   "description": "GST slab boundary \u20b97,500 taxed at 18 %",
+   "expected_level": "Unit",
+   "detected": true,
+   "failing_tests": 5,
+   "detected_by": [
+    "TC-PRC-BVA-008",
+    "TC-QTE-PW-005",
+    "TC-QTE-PW-012",
+    "TC-QTE-PW-019",
+    "TC-QTE-PW-020"
+   ],
+   "seconds": 31.9
+  },
+  {
+   "id": "SF-04",
+   "file": "app/domain/pricing.py",
+   "description": "30 % discount cap never enforced",
+   "expected_level": "Unit",
+   "detected": true,
+   "failing_tests": 1,
+   "detected_by": [
+    "test_prop_discount_cap"
+   ],
+   "seconds": 34.0
+  },
+  {
+   "id": "SF-05",
+   "file": "app/domain/cancellation.py",
+   "description": "Processing fee wrongly charged to PLATINUM",
+   "expected_level": "Unit",
+   "detected": true,
+   "failing_tests": 3,
+   "detected_by": [
+    "TC-CAN-DT-005",
+    "TC-CAN-DT-016",
+    "test_cancel_platinum"
+   ],
+   "seconds": 31.8
+  },
+  {
+   "id": "SF-06",
+   "file": "app/services.py",
+   "description": "Back-to-back stays treated as overlapping (lost inventory)",
+   "expected_level": "Integration",
+   "detected": true,
+   "failing_tests": 2,
+   "detected_by": [
+    "test_availability_dates",
+    "test_overlap_rules"
+   ],
+   "seconds": 31.2
+  },
+  {
+   "id": "SF-07",
+   "file": "app/services.py",
+   "description": "Object-level authorisation removed (IDOR)",
+   "expected_level": "Integration",
+   "detected": true,
+   "failing_tests": 2,
+   "detected_by": [
+    "test_idor",
+    "test_idor_api"
+   ],
+   "seconds": 31.9
+  },
+  {
+   "id": "SF-08",
+   "file": "app/services.py",
+   "description": "Idempotency check removed (double charge)",
+   "expected_level": "Integration",
+   "detected": true,
+   "failing_tests": 1,
+   "detected_by": [
+    "test_idempotent_payment"
+   ],
+   "seconds": 31.8
+  },
+  {
+   "id": "SF-09",
+   "file": "app/domain/state.py",
+   "description": "Cancellation allowed after check-in",
+   "expected_level": "Unit",
+   "detected": true,
+   "failing_tests": 1,
+   "detected_by": [
+    "TC-STM-SEQ-005"
+   ],
+   "seconds": 31.2
+  },
+  {
+   "id": "SF-10",
+   "file": "app/main.py",
+   "description": "Admin report exposed to guests",
+   "expected_level": "System",
+   "detected": true,
+   "failing_tests": 1,
+   "detected_by": [
+    "TC-SYS-NEG-016"
+   ],
+   "seconds": 31.8
+  },
+  {
+   "id": "SF-11",
+   "file": "app/static/index.html",
+   "description": "Server text rendered as HTML (DOM XSS)",
+   "expected_level": "E2E",
+   "detected": false,
+   "failing_tests": 0,
+   "detected_by": [],
+   "seconds": 31.3
+  },
+  {
+   "id": "SF-12",
+   "file": "app/services.py",
+   "description": "Lock-out threshold weakened to 4 attempts",
+   "expected_level": "Integration",
+   "detected": true,
+   "failing_tests": 3,
+   "detected_by": [
+    "TC-AUTH-DT-004",
+    "TC-AUTH-DT-005",
+    "test_bruteforce_lockout"
+   ],
+   "seconds": 31.5
+  }
+ ]
+}
