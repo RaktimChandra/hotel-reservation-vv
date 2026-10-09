@@ -14,7 +14,8 @@ All notable changes to this project. The format follows [Keep a Changelog](https
 - Tool-assisted manual-case execution (localisation, heuristic review, screen-reader proxy) with evidence.
 - Generators for the Excel workbook, Word/PDF report, IEEE 829 summary report, slide deck, dashboard, one-pager and video.
 - Live test-case output (`pytest --tc`), guided demo runner, visible-browser mode (`HRRS_HEADED=1`).
-- CI on Python 3.11 and 3.13, weekly mutation/fault-seeding workflow, release pipeline that builds every document.
+- CI on Python 3.11 and 3.13, weekly mutation/fault-seeding workflow, and a release pipeline that builds every document
+  and publishes it when a version is added to this changelog.
 
 ### Fixed
 - DEF-001 valid names with an initial rejected · DEF-002 booking-form overflow · DEF-003 "₹-0.00" discount ·
