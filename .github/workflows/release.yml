@@ -43,8 +43,10 @@ jobs:
             [ "$f" = HRRS_VV_Test_Report_Raktim.docx ] && continue
             soffice --headless --convert-to pdf --outdir . "$f"
           done
-      - name: Dashboard
-        run: python tools/make_dashboard.py
+      - name: Dashboard and one-page summary
+        run: |
+          python tools/make_dashboard.py
+          python tools/make_onepager.py
       - name: Demo video
         continue-on-error: true
         run: |
@@ -71,6 +73,7 @@ jobs:
             | `HRRS_Manual_Test_Execution_Kit_Raktim.*` | Manual-case records and kits |
             | `HRRS_Case_Studies_Raktim.*` · `HRRS_CycleTest3_Prep_*` | Case studies · worked problems |
             | `HRRS_Test_Results_Dashboard.html` | Searchable results (open in a browser) |
+            | `HRRS_One_Page_Summary_Raktim.pdf` | One-page summary |
             | `HRRS_Demo_Video_Raktim.mp4` | Captioned demo |
           files: deliverables/*
           fail_on_unmatched_files: false
