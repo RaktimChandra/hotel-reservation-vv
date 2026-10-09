@@ -1,0 +1,389 @@
+{
+ "requirement_review": [
+  {
+   "id": "RV-01",
+   "requirement": "FR-06",
+   "type": "Ambiguity",
+   "severity": "Major",
+   "finding": "'GST on declared tariff' does not say whether weekend/peak surcharges or the extra bed change the declared tariff. A SUITE at ₹7,500 on a Saturday is ₹9,000 actually charged but declared ₹7,500 → 5 % or 18 %?",
+   "resolution": "Clarified with product owner (team decision): slab is chosen on the base tariff + extra bed, before surcharges and discounts. Captured as test TC-PRC-BVA-008/009 and TC-SYS-FN-002."
+  },
+  {
+   "id": "RV-02",
+   "requirement": "FR-07",
+   "type": "Ambiguity",
+   "severity": "Major",
+   "finding": "'No cancellation after the stay starts' — is the arrival day itself 'started'?",
+   "resolution": "Arrival day (0 days before) is still cancellable under the 0–1 day band; cancellation is refused from the day after arrival (days_before < 0). Tested by TC-CAN-BVA-001/002."
+  },
+  {
+   "id": "RV-03",
+   "requirement": "FR-06",
+   "type": "Incompleteness",
+   "severity": "Minor",
+   "finding": "Weekend surcharge rule did not define which nights are 'weekend'.",
+   "resolution": "A night is a weekend night when it starts on Friday or Saturday (hotel industry convention). ECP cases TC-PRC-ECP-013..019."
+  },
+  {
+   "id": "RV-04",
+   "requirement": "FR-06",
+   "type": "Inconsistency",
+   "severity": "Minor",
+   "finding": "Order of applying promo vs. 30 % cap unspecified; promo could exceed the cap on its own.",
+   "resolution": "Cap applies to the sum of all discounts including the promo. Property TC-PBT-002."
+  },
+  {
+   "id": "RV-05",
+   "requirement": "FR-02",
+   "type": "Testability",
+   "severity": "Minor",
+   "finding": "'Account locked for 15 minutes' — counter reset behaviour after lock expiry not stated.",
+   "resolution": "Counter resets when the lock is applied and on every successful sign-in. Decision table TC-AUTH-DT-001..006."
+  },
+  {
+   "id": "RV-06",
+   "requirement": "FR-05",
+   "type": "Incompleteness",
+   "severity": "Minor",
+   "finding": "How guests are distributed across multiple rooms was not specified.",
+   "resolution": "Adults spread evenly (each room ≥ 1 adult); children fill remaining capacity in order. TC-INT-021/022."
+  },
+  {
+   "id": "RV-07",
+   "requirement": "NFR-PERF-01",
+   "type": "Testability",
+   "severity": "Major",
+   "finding": "Original wording 'system should be fast' was not measurable.",
+   "resolution": "Rewritten as p95 < 300 ms and < 1 % errors at 25 concurrent users (SMART); verified by the load test."
+  }
+ ],
+ "code_inspection": [
+  {
+   "id": "CI-01",
+   "file": "app/services.py",
+   "finding": "Dynamic UPDATE built with an f-string (Bandit B608 / Ruff S608).",
+   "decision": "Values were parameterised; hardened with a column allow-list (SA-01). Test TC-INT-025.",
+   "status": "Fixed"
+  },
+  {
+   "id": "CI-02",
+   "file": "app/services.py",
+   "finding": "free_rooms builds an IN (?,?,?) list with an f-string (Bandit B608).",
+   "decision": "False positive: only '?' placeholders are interpolated; all values bound. Kept with justification.",
+   "status": "Accepted (false positive)"
+  },
+  {
+   "id": "CI-03",
+   "file": "app/main.py",
+   "finding": "Unused import datetime (Ruff F401).",
+   "decision": "Removed.",
+   "status": "Fixed"
+  },
+  {
+   "id": "CI-04",
+   "file": "app/main.py",
+   "finding": "Depends() in argument defaults (Ruff B008, 11×).",
+   "decision": "False positive: idiomatic FastAPI dependency injection.",
+   "status": "Accepted (framework idiom)"
+  },
+  {
+   "id": "CI-05",
+   "file": "app/main.py",
+   "finding": "create_app complexity 35 > 10 (Ruff C901).",
+   "decision": "Route closures inside the factory inflate the metric; each route body has CC ≤ 2. Accepted; refactor to APIRouter recommended.",
+   "status": "Deferred"
+  },
+  {
+   "id": "CI-06",
+   "file": "app/services.py",
+   "finding": "Exception names NotFound/Forbidden lack 'Error' suffix (Ruff N818).",
+   "decision": "Style only; kept for readability of handlers.",
+   "status": "Accepted"
+  },
+  {
+   "id": "CI-07",
+   "file": "app/domain/validation.py",
+   "finding": "password_strength cyclomatic complexity 14 (radon C).",
+   "decision": "Linear list of independent checks, each covered by ECP + branch tests; acceptable.",
+   "status": "Accepted"
+  },
+  {
+   "id": "CI-08",
+   "file": "app/db.py",
+   "finding": "Old-style % string formatting (Ruff UP031).",
+   "decision": "Converted to f-string.",
+   "status": "Fixed"
+  }
+ ],
+ "exploratory_charters": [
+  {
+   "id": "XS-01",
+   "charter": "Explore the booking form with unusual party compositions (many children, extra beds, 5 rooms) to discover occupancy-rule gaps.",
+   "timebox": "45 min",
+   "tester": "Raktim Chandra",
+   "status": "Planned"
+  },
+  {
+   "id": "XS-02",
+   "charter": "Explore the end-to-end UI visually at desktop width using the recorded run to discover layout and formatting problems.",
+   "timebox": "30 min",
+   "tester": "Raktim Chandra",
+   "status": "Executed",
+   "result": "2 defects: DEF-002 (field overflow), DEF-003 (₹-0.00)."
+  },
+  {
+   "id": "XS-03",
+   "charter": "Explore date handling around month/year ends, leap years and the 365-day horizon.",
+   "timebox": "30 min",
+   "tester": "Raktim Chandra",
+   "status": "Partially automated (TC-EG-001..003)"
+  },
+  {
+   "id": "XS-04",
+   "charter": "Explore payment with network interruptions and double clicks on 'Pay now' to discover duplicate charges.",
+   "timebox": "45 min",
+   "tester": "Raktim Chandra",
+   "status": "Partially automated (TC-INT-007, TC-SYS-REC-001)"
+  },
+  {
+   "id": "XS-05",
+   "charter": "Explore admin functions as a guest (URL tampering, replayed tokens) to discover authorisation gaps.",
+   "timebox": "45 min",
+   "tester": "Raktim Chandra",
+   "status": "Automated (TC-SEC-005/006)"
+  }
+ ],
+ "manual_cases": [
+  {
+   "id": "TC-MAN-USE-001",
+   "title": "Nielsen heuristic walkthrough of the booking page (visibility of status, error prevention, recognition over recall)",
+   "type": "Usability",
+   "requirement": "NFR-USE-01",
+   "steps": "Two evaluators independently score the 10 heuristics 0–4 on the booking page; merge findings.",
+   "expected": "No heuristic scored ≥ 3 (major usability problem)",
+   "status": "IN PROGRESS",
+   "tester": "Evaluator 1: Claude (AI assistant, tool-assisted) · Evaluator 2: second evaluator (pending)",
+   "date": "2026-10-08",
+   "environment": "Chromium 141 · 1280×900 desktop and 375×812 mobile · signed-in guest",
+   "actual": "Evaluator 1 scored all 10 heuristics; highest severity 2 (minor) — no heuristic ≥ 3. Six usability observations logged (UX-01..UX-06). Expected result met for evaluator 1; case closes when evaluator 2 has scored independently and findings are merged.",
+   "evidence": "reports/manual/USE-001_desktop_quote.png · USE-001_desktop_error.png · USE-001_mobile_quote.png · USE-001_mobile_error.png",
+   "heuristic_scores": [
+    [
+     "H1 Visibility of system status",
+     1,
+     "Every action reports into a status region; header shows the internal tier code \"(NONE)\" after sign-in (UX-01)."
+    ],
+    [
+     "H2 Match with the real world",
+     1,
+     "Booking form's Room type list shows codes (DELUXE) while the cards say \"Deluxe Room\" (UX-02)."
+    ],
+    [
+     "H3 User control and freedom",
+     2,
+     "No sign-out control; the sign-in panel stays on screen after signing in (UX-03). Bookings can be cancelled."
+    ],
+    [
+     "H4 Consistency and standards",
+     1,
+     "Same naming mismatch as H2; buttons, colours and messages otherwise consistent."
+    ],
+    [
+     "H5 Error prevention",
+     2,
+     "Date pickers allow past and reversed dates (no min / dependent min); the error appears only after Search (UX-04)."
+    ],
+    [
+     "H6 Recognition rather than recall",
+     0,
+     "Cards show price for the stay incl. GST and rooms left; Select carries the room into the booking form."
+    ],
+    [
+     "H7 Flexibility and efficiency of use",
+     1,
+     "No shortcut to re-book or remember the last search; acceptable for scope."
+    ],
+    [
+     "H8 Aesthetic and minimalist design",
+     0,
+     "Clean single-page layout; works at 375 px with no horizontal scroll."
+    ],
+    [
+     "H9 Help users recognise and recover from errors",
+     0,
+     "Plain-language messages next to the form (\"Check-out must be after check-in\")."
+    ],
+    [
+     "H10 Help and documentation",
+     2,
+     "Refund rules are not shown when choosing Flexible vs Saver rate (UX-05)."
+    ]
+   ],
+   "observations": [
+    [
+     "UX-01",
+     "Header shows internal tier code \"(NONE)\" for guests with no loyalty tier",
+     "Cosmetic",
+     "Backlog"
+    ],
+    [
+     "UX-02",
+     "Room type select shows codes instead of the names used on the cards",
+     "Minor",
+     "Backlog"
+    ],
+    [
+     "UX-03",
+     "No sign-out; sign-in panel remains after sign-in",
+     "Minor",
+     "Backlog"
+    ],
+    [
+     "UX-04",
+     "Date fields accept past / reversed dates until submit (add min and dependent min)",
+     "Minor",
+     "Backlog"
+    ],
+    [
+     "UX-05",
+     "Cancellation/refund rules not visible at the rate choice",
+     "Minor",
+     "Backlog"
+    ],
+    [
+     "UX-06",
+     "My bookings action column header is display:none, so it is announced as an empty header (use a visually-hidden label)",
+     "Minor (a11y)",
+     "Backlog"
+    ]
+   ]
+  },
+  {
+   "id": "TC-MAN-USE-002",
+   "title": "First-time user completes a booking without help in < 3 minutes (5 participants)",
+   "type": "Usability",
+   "requirement": "NFR-USE-01",
+   "steps": "Think-aloud session; record time-on-task and errors.",
+   "expected": "≥ 4/5 succeed; median < 3 min; SUS ≥ 68",
+   "status": "NOT RUN",
+   "tester": "Pending (needs 5 participants)",
+   "date": "",
+   "environment": "Any laptop with the app running; screen + audio recording",
+   "actual": "Not executed — this case needs five real first-time users. It cannot be simulated honestly. Task script, SUS questionnaire and recording sheet are ready in the Manual Test Execution Kit.",
+   "evidence": "deliverables/HRRS_Manual_Test_Execution_Kit_Raktim.docx (§ USE-002 kit)"
+  },
+  {
+   "id": "TC-MAN-L10N-001",
+   "title": "Amounts shown in Indian grouping with ₹ symbol (₹1,23,456.00)",
+   "type": "Localization",
+   "requirement": "NFR-USE-01",
+   "steps": "Quote a long FAMILY stay; inspect totals.",
+   "expected": "en-IN lakh grouping and two decimals",
+   "status": "PASS",
+   "tester": "Claude (AI assistant, tool-assisted)",
+   "date": "2026-10-08",
+   "environment": "Chromium 141, locale en-IN; FAMILY ×2 rooms, 4 adults, 1→31 Dec 2026 (30 nights, maximum stay)",
+   "actual": "Quote shows Subtotal ₹4,18,800.00 · Discount ₹62,820.00 · GST ₹17,799.00 · Total ₹3,73,779.00. All 4 amounts use ₹, Indian lakh grouping (x,xx,xxx) and exactly two decimals; two amounts are ≥ ₹1 lakh.",
+   "evidence": "reports/manual/L10N-001_quote.png · L10N-001_page.png · manual_exec.json"
+  },
+  {
+   "id": "TC-MAN-L10N-002",
+   "title": "Date pickers respect browser locale (DD/MM/YYYY on en-IN)",
+   "type": "Localization",
+   "requirement": "NFR-USE-01",
+   "steps": "Set browser locale en-IN; open date fields.",
+   "expected": "Locale-appropriate format; ISO sent to API",
+   "status": "PASS",
+   "tester": "Claude (AI assistant, tool-assisted)",
+   "date": "2026-10-08",
+   "environment": "Chromium 141 started with --lang=en-IN and, as control, --lang=en-US",
+   "actual": "en-IN: fields display DD/MM/YYYY (15/11/2026); en-US: MM/DD/YYYY. Both send ISO dates to the API: GET /api/availability?check_in=2026-11-15&check_out=2026-11-18. Note: the display order follows the browser's UI language, not only the page's Accept-Language — a browser set to en-US shows MM/DD even for Indian users (native control behaviour, not an app defect).",
+   "evidence": "reports/manual/L10N-002_dates_en-IN.png · L10N-002_dates_en-US.png · manual_exec.json"
+  },
+  {
+   "id": "TC-MAN-COMP-001",
+   "title": "Booking journey on Firefox (latest) on Windows 11",
+   "type": "Compatibility",
+   "requirement": "NFR-COMP-02",
+   "steps": "Repeat TC-E2E-001 manually.",
+   "expected": "Identical behaviour",
+   "status": "NOT RUN",
+   "tester": "Pending (Windows 11 + Firefox)",
+   "date": "",
+   "environment": "Requires a Windows 11 PC with current Firefox — not available in the lab sandbox (Firefox cannot be installed there; see TC-E2E-011 SKIPPED)",
+   "actual": "Not executed. Step-by-step checklist (the TC-E2E-001 journey with expected values) is in the Manual Test Execution Kit.",
+   "evidence": "deliverables/HRRS_Manual_Test_Execution_Kit_Raktim.docx (§ COMP checklist)"
+  },
+  {
+   "id": "TC-MAN-COMP-002",
+   "title": "Booking journey on Safari (iOS 17+, iPhone)",
+   "type": "Compatibility",
+   "requirement": "NFR-COMP-02",
+   "steps": "Repeat TC-E2E-001 on a real device.",
+   "expected": "Identical behaviour; numeric keypad for card fields",
+   "status": "NOT RUN",
+   "tester": "Pending (iPhone, iOS 17+)",
+   "date": "",
+   "environment": "Requires a physical iPhone with Safari on the same network as the app",
+   "actual": "Not executed. Checklist (incl. numeric keypad on card fields — inputmode=numeric is present in the markup) is in the kit.",
+   "evidence": "deliverables/HRRS_Manual_Test_Execution_Kit_Raktim.docx (§ COMP checklist)"
+  },
+  {
+   "id": "TC-MAN-INST-001",
+   "title": "Fresh install from README on a clean machine",
+   "type": "Installation",
+   "requirement": "NFR-AVL-01",
+   "steps": "Clone, pip install -r requirements.txt, uvicorn app.main:app.",
+   "expected": "Health endpoint OK within 5 minutes",
+   "status": "PASS",
+   "tester": "Claude (AI assistant, tool-assisted)",
+   "date": "2026-10-08",
+   "environment": "Clean Python 3.13 virtual environment, package extracted from the submission zip",
+   "actual": "First run: pip install -r requirements.txt completed in 21 s; GET /api/health returned OK at 26 s (limit 5 min); /docs returned 200; admin sign-in worked. Retest on the rebuilt package after the DOC-001 fixes: install 24 s, healthy at 25 s, /docs 200 — PASS.",
+   "evidence": "Console log in Manual Test Execution Kit (§ INST-001)"
+  },
+  {
+   "id": "TC-MAN-DOC-001",
+   "title": "README and API docs match behaviour (documentation testing)",
+   "type": "Documentation",
+   "requirement": "NFR-API-01",
+   "steps": "Follow every README command and /docs example.",
+   "expected": "All commands and examples work as written",
+   "status": "PASS (retest)",
+   "tester": "Claude (AI assistant, tool-assisted)",
+   "date": "2026-10-08",
+   "environment": "Same clean environment as INST-001; every README command run as written",
+   "actual": "First run FAILED — 5 documentation/packaging defects (DEF-006..DEF-010): the full suite failed on a clean machine (axe-core not shipped), the README marker line was not a runnable command, a marker run overwrote results.json, a fresh mutation run crashed the generators, and the generators needed sandbox-only paths and undeclared Node packages. Retest on the rebuilt package in a clean environment: pytest 558 passed / 2 skipped with results.json intact at 554 rows; all six marker commands ran; mutation.py reproduced 267 killed / 3 equivalent / 100 %; npm install and all eight regeneration commands succeeded (report 83 pages); check_package.py 9/9 — PASS.",
+   "evidence": "reports/defects_manual.json · tools/check_package.py output",
+   "defects": "DEF-006, DEF-007, DEF-008, DEF-009, DEF-010"
+  },
+  {
+   "id": "TC-MAN-A11Y-001",
+   "title": "Screen-reader pass with NVDA / VoiceOver",
+   "type": "Accessibility",
+   "requirement": "NFR-USE-02",
+   "steps": "Navigate sign-in, search and booking by screen reader only.",
+   "expected": "All controls announced with labels; status messages announced",
+   "status": "IN PROGRESS",
+   "tester": "Automated proxy: Claude (AI assistant, tool-assisted) · NVDA/VoiceOver pass: pending",
+   "date": "2026-10-08",
+   "environment": "Chromium 141 accessibility tree (what a screen reader reads) + keyboard-only navigation",
+   "actual": "Proxy checks pass: all 28 form controls have accessible names (0 unnamed); auth tabs are exposed as role=tab with selected state; 7 live/status regions; a failed sign-in (\"Invalid email or password\") lands in a role=status region, so it is announced; keyboard order follows the visual order. Findings: the bookings table's action column has an empty header (UX-06); the calendar button inside the date fields shows no focus ring. A real NVDA (Windows) or VoiceOver (macOS/iOS) pass is still needed to close the case.",
+   "evidence": "reports/manual/A11Y-001_aria_snapshot.yaml · A11Y-001_login_error.png · manual_exec.json"
+  },
+  {
+   "id": "TC-MAN-BETA-001",
+   "title": "Beta test with 10 classmates for 3 days",
+   "type": "Beta (acceptance)",
+   "requirement": "FR-01..FR-15",
+   "steps": "Collect feedback form + defect reports.",
+   "expected": "No P1 defects; satisfaction ≥ 4/5",
+   "status": "NOT RUN",
+   "tester": "Pending (10 classmates, 3 days)",
+   "date": "",
+   "environment": "App hosted on a laptop on the campus network, or any free host",
+   "actual": "Not executed — needs ten real participants over three days. Invitation text, feedback form (1–5 satisfaction) and defect-report template are in the kit.",
+   "evidence": "deliverables/HRRS_Manual_Test_Execution_Kit_Raktim.docx (§ BETA kit)"
+  }
+ ]
+}
