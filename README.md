@@ -5,6 +5,8 @@
 **A working hotel booking system, and a complete, measured test campaign built around it.**
 
 [![CI](https://github.com/RaktimChandra/hotel-reservation-vv/actions/workflows/ci.yml/badge.svg)](https://github.com/RaktimChandra/hotel-reservation-vv/actions/workflows/ci.yml)
+[![Test quality](https://github.com/RaktimChandra/hotel-reservation-vv/actions/workflows/quality.yml/badge.svg)](https://github.com/RaktimChandra/hotel-reservation-vv/actions/workflows/quality.yml)
+[![Release](https://img.shields.io/github/v/release/RaktimChandra/hotel-reservation-vv?color=0F6E78)](https://github.com/RaktimChandra/hotel-reservation-vv/releases/latest)
 ![Test cases](https://img.shields.io/badge/test%20cases-554-0F6E78)
 ![Statement coverage](https://img.shields.io/badge/statement%20coverage-100%25-1BAF7A)
 ![Branch coverage](https://img.shields.io/badge/branch%20coverage-99.6%25-1BAF7A)
@@ -88,6 +90,26 @@ flowchart LR
 
 A partial run (`-m smoke`, `-k …`) writes `results_partial.json`, so the full-suite evidence is never overwritten.
 
+## Documentation
+
+| Document | What it covers |
+|---|---|
+| [Test strategy](docs/TEST_STRATEGY.md) | Levels, entry/exit criteria, risk register, where each technique lives |
+| [Traceability matrix](docs/TRACEABILITY.md) | Every requirement → executed test cases per level, generated from the run |
+| [Live demo guide](docs/DEMO.md) | Step-by-step script for demonstrating the app and running tests live |
+| [Contributing](CONTRIBUTING.md) | `@tc` metadata, test-case ID scheme, pull-request checklist |
+| [Security](SECURITY.md) | Scope and demo-credential notes |
+| [Changelog](CHANGELOG.md) | What changed in each release |
+| Release assets | 83-page test report, slide deck, Excel workbook, IEEE 829 summary report, manual-test kit, demo video |
+
+## Continuous integration
+
+| Workflow | Runs | What it does |
+|---|---|---|
+| **CI** | every push / PR | Ruff + Bandit + packaging checks · all 554 cases on Python 3.11 and 3.13 with coverage · E2E in Chromium, Firefox and WebKit |
+| **Test quality** | weekly + on demand | Mutation testing with a 90 % score gate · fault seeding |
+| **Release** | on `v*` tags | Builds the report, deck, workbook, dashboard, one-pager and video from the committed evidence and attaches them to the release |
+
 ## Repository layout
 
 ```
@@ -115,7 +137,10 @@ python tools/fault_seeding.py      # fault seeding                          → 
 python tools/manual_exec.py        # tool-assisted manual cases (L10N, a11y) → reports/manual/
 python tools/check_package.py      # release / packaging checks
 ruff check app tests tools         # lint
+python tools/make_traceability.py  # regenerate docs/TRACEABILITY.md
 ```
+
+`make help`-style shortcuts are in the [Makefile](Makefile): `make test`, `make security`, `make live`, `make coverage`, `make mutation`, `make docs`.
 
 Regenerating the documents needs Node 18+ and LibreOffice:
 
