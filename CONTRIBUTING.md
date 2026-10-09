@@ -24,16 +24,14 @@ def test_max_nights(...):
 
 `TC-<MODULE>-<TECHNIQUE>-<NNN>` — e.g. `TC-CAN-DT-004` is Cancellation, Decision Table, case 4.
 
-| Module | | Technique | |
-|---|---|---|---|
-| REG | registration | BVA | boundary value analysis |
-| AUTH | authentication | ECP | equivalence partitioning |
-| SRCH | search | DT | decision table |
-| BOOK | booking | CEG | cause-effect graph |
-| PRC | pricing | ST | state transition |
-| CAN | cancellation | WB | white-box (PATH, MCDC, DF, LOOP) |
-| PAY | payment | SEC | security |
-| SYS / E2E / UAT | levels | PERF / REC | performance / recovery |
+**Modules / groups:** REG registration · AUTH · SRCH search · BOOK · ROOM · PRC pricing · QTE quote · CAN cancellation ·
+CHK check-out · PAY payment · STM state machine · BEN benefits · RPT reports · WB white-box · EG error guessing ·
+PBT property-based · INT integration · SYS system · SEC security · PERF · E2E · UAT · COV coverage-guided ·
+MUT mutation-guided · MAN manual.
+
+**Techniques:** BVA / BVA2 boundary values · ECP partitions · DT decision table · CEG cause-effect graph ·
+SEQ state sequences · STMT / BR / COND / MCDC / PATH / DF / LOOP white-box criteria · PW pairwise ·
+NEG negative · API contract · REC recovery · SMK smoke · RGN regression · FN functional · WC worst case.
 
 ## Before opening a pull request
 
