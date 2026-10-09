@@ -3,7 +3,7 @@
   "private": true,
   "description": "Node packages used to regenerate the report, companion documents and slide deck",
   "dependencies": {
-    "docx": "9.7.1",
+    "docx": "9.8.1",
     "pptxgenjs": "4.0.1",
     "react": "19.2.8",
     "react-dom": "19.2.8",
