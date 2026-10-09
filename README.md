@@ -140,7 +140,7 @@ ruff check app tests tools         # lint
 python tools/make_traceability.py  # regenerate docs/TRACEABILITY.md
 ```
 
-`make help`-style shortcuts are in the [Makefile](Makefile): `make test`, `make security`, `make live`, `make coverage`, `make mutation`, `make docs`.
+Shortcuts are in the [Makefile](Makefile): `make test`, `make security`, `make live`, `make coverage`, `make mutation`, `make docs`.
 
 Regenerating the documents needs Node 18+ and LibreOffice:
 
