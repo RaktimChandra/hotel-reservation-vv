@@ -7,7 +7,7 @@ pytest-cov==7.1.0
 pytest-bdd==9.0.0
 pytest-html==4.2.0
 hypothesis==6.168.5
-playwright==1.56.0
+playwright==1.63.0
 coverage==7.16.2
 ruff==0.16.10
 bandit==1.9.4
