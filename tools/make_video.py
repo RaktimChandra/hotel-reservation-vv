@@ -8,7 +8,16 @@ DECK_PDF = ROOT / "deliverables" / "HRRS_VV_Presentation_Raktim.pdf"
 JOURNEY = ROOT / "reports" / "demo_recording" / "guest_journey.webm"
 TERMINAL = Path(__file__).resolve().parents[1] / "docs" / "figures" / "video" / "terminal.png"
 OUT = ROOT / "deliverables" / "HRRS_Demo_Video_Raktim.mp4"
-FONT = "/usr/share/fonts/opentype/inter/Inter-SemiBold.otf"
+def _font():
+    """Inter SemiBold if installed, otherwise whatever fontconfig resolves for a bold sans."""
+    p = Path("/usr/share/fonts/opentype/inter/Inter-SemiBold.otf")
+    if p.exists():
+        return str(p)
+    out = subprocess.run(["fc-match", "-f", "%{file}", "Inter:semibold"], capture_output=True, text=True).stdout.strip()
+    return out or "DejaVuSans-Bold.ttf"
+
+
+FONT = _font()
 W = Path(tempfile.mkdtemp(prefix="vid_"))
 
 subprocess.run(["pdftoppm", "-png", "-scale-to-x", "1920", "-scale-to-y", "1080", str(DECK_PDF), str(W / "s")], check=True,
