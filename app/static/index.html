@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marina Crest — Room Reservations</title>
+<style>
+  :root{--ink:#14213d;--muted:#5b6475;--sea:#0f6e78;--sea-d:#0a525a;--sand:#f6f1e7;--card:#fff;--line:#e3dccd;--warn:#b42318;--ok:#067647;--gold:#b7791f}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--sand)}
+  header{background:var(--ink);color:#fff;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  header h1{font-size:20px;margin:0;letter-spacing:.3px}
+  header h1 span{color:#f2c46d}
+  header .who{font-size:14px;opacity:.9}
+  main{max-width:1040px;margin:0 auto;padding:24px 16px 64px;display:grid;gap:20px}
+  section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  h2{margin:0 0 14px;font-size:18px}
+  .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+  label{display:grid;gap:6px;font-size:13px;color:var(--muted);font-weight:600}
+  input,select{width:100%;min-width:0;font:inherit;padding:10px 12px;border:1px solid #cfc6b3;border-radius:9px;background:#fff;color:var(--ink)}
+  input:focus,select:focus,button:focus{outline:3px solid #f2c46d;outline-offset:1px}
+  button{font:inherit;font-weight:600;padding:10px 16px;border-radius:9px;border:0;background:var(--sea);color:#fff;cursor:pointer}
+  button:hover{background:var(--sea-d)}
+  button.ghost{background:transparent;color:var(--sea);border:1px solid var(--sea)}
+  .row button{width:auto}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin-top:12px}
+  .msg{margin-top:12px;padding:10px 12px;border-radius:9px;font-size:14px}
+  .msg.err{background:#fef3f2;color:var(--warn);border:1px solid #fecdca}
+  .msg.ok{background:#ecfdf3;color:var(--ok);border:1px solid #abefc6}
+  .rooms{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  .room{border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;gap:6px}
+  .room b{font-size:16px}
+  .price{font-size:22px;font-weight:700;color:var(--sea)}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line)}
+  .pill{display:inline-block;padding:2px 9px;border-radius:99px;font-size:12px;font-weight:700;background:#eef4ff;color:#3538cd}
+  .pill.CONFIRMED{background:#ecfdf3;color:var(--ok)} .pill.CANCELLED,.pill.EXPIRED{background:#fef3f2;color:var(--warn)}
+  .hidden{display:none}
+  .muted{color:var(--muted);font-size:13px}
+  .tabs{display:flex;gap:8px;margin-bottom:12px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Marina Crest <span>·</span> Reservations</h1>
+  <div class="who" data-testid="who" aria-live="polite">Not signed in</div>
+</header>
+<main>
+  <section id="auth" aria-labelledby="auth-h">
+    <h2 id="auth-h">Sign in or create an account</h2>
+    <div class="tabs" role="tablist">
+      <button class="ghost" id="tab-login" role="tab" aria-selected="true" data-testid="tab-login">Sign in</button>
+      <button class="ghost" id="tab-register" role="tab" aria-selected="false" data-testid="tab-register">Register</button>
+    </div>
+    <form id="login-form" data-testid="login-form">
+      <div class="grid">
+        <label>Email <input name="email" type="email" autocomplete="username" required data-testid="login-email"></label>
+        <label>Password <input name="password" type="password" autocomplete="current-password" required data-testid="login-password"></label>
+      </div>
+      <div class="row"><button type="submit" data-testid="login-submit">Sign in</button></div>
+    </form>
+    <form id="register-form" class="hidden" data-testid="register-form">
+      <div class="grid">
+        <label>Full name <input name="name" required data-testid="reg-name"></label>
+        <label>Email <input name="email" type="email" required data-testid="reg-email"></label>
+        <label>Mobile <input name="phone" inputmode="numeric" required data-testid="reg-phone"></label>
+        <label>Age <input name="age" type="number" required data-testid="reg-age"></label>
+        <label>Password <input name="password" type="password" autocomplete="new-password" required data-testid="reg-password"></label>
+      </div>
+      <p class="muted">Password: 8–20 characters with upper case, lower case, a digit and a special character.</p>
+      <div class="row"><button type="submit" data-testid="reg-submit">Create account</button></div>
+    </form>
+    <div id="auth-msg" role="status"></div>
+  </section>
+
+  <section id="search" aria-labelledby="search-h">
+    <h2 id="search-h">Find a room</h2>
+    <form id="search-form" data-testid="search-form">
+      <div class="grid">
+        <label>Check-in <input type="date" name="check_in" required data-testid="check-in"></label>
+        <label>Check-out <input type="date" name="check_out" required data-testid="check-out"></label>
+      </div>
+      <div class="row"><button type="submit" data-testid="search-submit">Search availability</button></div>
+    </form>
+    <div id="search-msg" role="status"></div>
+    <div class="rooms" id="results" data-testid="results"></div>
+  </section>
+
+  <section id="book" class="hidden" aria-labelledby="book-h">
+    <h2 id="book-h">Your booking</h2>
+    <form id="book-form" data-testid="book-form">
+      <div class="grid">
+        <label>Room type <select name="room_type" data-testid="room-type">
+          <option>STANDARD</option><option>DELUXE</option><option>FAMILY</option><option>SUITE</option></select></label>
+        <label>Rooms <input type="number" name="rooms" value="1" min="1" max="5" data-testid="rooms"></label>
+        <label>Adults <input type="number" name="adults" value="1" min="1" data-testid="adults"></label>
+        <label>Children <input type="number" name="children" value="0" min="0" data-testid="children"></label>
+        <label>Extra beds <input type="number" name="extra_beds" value="0" min="0" data-testid="extra-beds"></label>
+        <label>Promo code <input name="promo" data-testid="promo"></label>
+        <label>Rate <select name="refundable" data-testid="refundable"><option value="true">Flexible (refundable)</option><option value="false">Saver (non-refundable)</option></select></label>
+      </div>
+      <div class="row">
+        <button type="button" class="ghost" id="quote-btn" data-testid="quote-btn">Get price</button>
+        <button type="submit" data-testid="book-submit">Reserve</button>
+      </div>
+    </form>
+    <div id="quote" data-testid="quote" aria-live="polite"></div>
+    <div id="book-msg" role="status"></div>
+  </section>
+
+  <section id="pay" class="hidden" aria-labelledby="pay-h">
+    <h2 id="pay-h">Pay within 15 minutes</h2>
+    <p class="muted">Booking <b data-testid="pay-ref"></b> — amount due <b data-testid="pay-amount"></b></p>
+    <form id="pay-form" data-testid="pay-form">
+      <div class="grid">
+        <label>Card number <input name="number" inputmode="numeric" autocomplete="cc-number" data-testid="card-number"></label>
+        <label>Expiry month <input name="exp_month" type="number" min="1" max="12" data-testid="card-month"></label>
+        <label>Expiry year <input name="exp_year" type="number" data-testid="card-year"></label>
+        <label>CVV <input name="cvv" type="password" inputmode="numeric" maxlength="3" data-testid="card-cvv"></label>
+      </div>
+      <div class="row"><button type="submit" data-testid="pay-submit">Pay now</button></div>
+    </form>
+    <div id="pay-msg" role="status"></div>
+  </section>
+
+  <section id="mine" aria-labelledby="mine-h">
+    <h2 id="mine-h">My bookings</h2>
+    <table><thead><tr><th scope="col">Ref</th><th scope="col">Room</th><th scope="col">Dates</th><th scope="col">Total</th><th scope="col">Status</th><th scope="col"><span class="hidden">Action</span></th></tr></thead>
+    <tbody id="mine-body" data-testid="mine-body"><tr><td colspan="6" class="muted">Sign in to see your bookings.</td></tr></tbody></table>
+    <div id="mine-msg" role="status"></div>
+  </section>
+</main>
+<script>
+const $ = s => document.querySelector(s);
+let token = null, me = null, current = null;
+const inr = n => '₹' + Number(n).toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+function show(el, text, ok) {
+  el.innerHTML = '';
+  const d = document.createElement('div');
+  d.className = 'msg ' + (ok ? 'ok' : 'err');
+  d.setAttribute('data-testid', ok ? 'msg-ok' : 'msg-error');
+  d.textContent = text;          // textContent: never interpret server data as HTML
+  el.appendChild(d);
+}
+async function api(path, opts = {}) {
+  const headers = {'Content-Type': 'application/json', ...(opts.headers || {})};
+  if (token) headers.Authorization = 'Bearer ' + token;
+  const r = await fetch(path, {...opts, headers});
+  const body = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(body.message || (body.detail && JSON.stringify(body.detail)) || r.statusText);
+  return body;
+}
+function formData(form) {
+  const o = {};
+  new FormData(form).forEach((v, k) => o[k] = v);
+  return o;
+}
+$('#tab-login').onclick = () => { $('#login-form').classList.remove('hidden'); $('#register-form').classList.add('hidden');
+  $('#tab-login').setAttribute('aria-selected','true'); $('#tab-register').setAttribute('aria-selected','false'); };
+$('#tab-register').onclick = () => { $('#register-form').classList.remove('hidden'); $('#login-form').classList.add('hidden');
+  $('#tab-register').setAttribute('aria-selected','true'); $('#tab-login').setAttribute('aria-selected','false'); };
+
+$('#register-form').onsubmit = async e => {
+  e.preventDefault();
+  const d = formData(e.target); d.age = parseInt(d.age || '0', 10);
+  try { await api('/api/auth/register', {method: 'POST', body: JSON.stringify(d)});
+        show($('#auth-msg'), 'Account created. You can sign in now.', true); $('#tab-login').click();
+        $('[data-testid=login-email]').value = d.email; }
+  catch (err) { show($('#auth-msg'), err.message, false); }
+};
+$('#login-form').onsubmit = async e => {
+  e.preventDefault();
+  try { const r = await api('/api/auth/login', {method: 'POST', body: JSON.stringify(formData(e.target))});
+        token = r.token; me = r.user;
+        const who = $('[data-testid=who]'); who.textContent = 'Signed in as ' + me.name + ' (' + me.tier + ')';
+        show($('#auth-msg'), 'Welcome back, ' + me.name + '.', true); loadMine(); }
+  catch (err) { show($('#auth-msg'), err.message, false); }
+};
+$('#search-form').onsubmit = async e => {
+  e.preventDefault();
+  const d = formData(e.target);
+  try {
+    const rows = await api(`/api/availability?check_in=${d.check_in}&check_out=${d.check_out}`);
+    $('#search-msg').innerHTML = '';
+    const box = $('#results'); box.innerHTML = '';
+    rows.forEach(r => {
+      const c = document.createElement('div'); c.className = 'room'; c.setAttribute('data-testid', 'room-' + r.room_type);
+      c.innerHTML = `<b></b><span class="muted"></span><span class="price"></span><span class="muted"></span>`;
+      c.children[0].textContent = r.name;
+      c.children[1].textContent = `Up to ${r.capacity} guests · ${r.available} left`;
+      c.children[2].textContent = inr(r.from_total);
+      c.children[3].textContent = `total for ${r.nights} night(s), incl. GST`;
+      const b = document.createElement('button'); b.textContent = 'Select'; b.disabled = r.available === 0;
+      b.setAttribute('data-testid', 'select-' + r.room_type);
+      b.onclick = () => { $('#book').classList.remove('hidden'); $('[data-testid=room-type]').value = r.room_type; $('#book-h').scrollIntoView(); };
+      c.appendChild(b); box.appendChild(c);
+    });
+  } catch (err) { show($('#search-msg'), err.message, false); }
+};
+function stayBody() {
+  const s = formData($('#search-form')), b = formData($('#book-form'));
+  return {room_type: b.room_type, check_in: s.check_in, check_out: s.check_out, rooms: +b.rooms,
+          extra_beds: +b.extra_beds, adults: +b.adults, children: +b.children, promo: b.promo || null,
+          refundable: b.refundable === 'true'};
+}
+$('#quote-btn').onclick = async () => {
+  try {
+    const q = await api('/api/quote', {method: 'POST', body: JSON.stringify(stayBody())});
+    const t = document.createElement('table');
+    [['Subtotal', inr(q.subtotal)], ['Discount', q.discount > 0 ? '− ' + inr(q.discount) : inr(0)],
+     ['GST (' + Math.round(q.gst_rate * 100) + '%)', inr(q.gst)], ['Total', inr(q.total)]]
+      .forEach(([k, v]) => { const tr = t.insertRow(); tr.insertCell().textContent = k; tr.insertCell().textContent = v;
+                             tr.setAttribute('data-testid', 'quote-' + k.split(' ')[0].toLowerCase()); });
+    $('#quote').innerHTML = ''; $('#quote').appendChild(t);
+    $('#book-msg').innerHTML = '';
+  } catch (err) { show($('#book-msg'), err.message, false); }
+};
+$('#book-form').onsubmit = async e => {
+  e.preventDefault();
+  if (!token) return show($('#book-msg'), 'Sign in first', false);
+  try {
+    current = await api('/api/bookings', {method: 'POST', body: JSON.stringify(stayBody())});
+    show($('#book-msg'), 'Rooms held: ' + current.ref + ' (' + current.room_numbers.join(', ') + ')', true);
+    $('#pay').classList.remove('hidden');
+    $('[data-testid=pay-ref]').textContent = current.ref;
+    $('[data-testid=pay-amount]').textContent = inr(current.total);
+    loadMine();
+  } catch (err) { show($('#book-msg'), err.message, false); }
+};
+$('#pay-form').onsubmit = async e => {
+  e.preventDefault();
+  const d = formData(e.target);
+  try {
+    const r = await api(`/api/bookings/${current.id}/pay`, {method: 'POST',
+      headers: {'Idempotency-Key': 'ui-' + current.id + '-' + Date.now()},
+      body: JSON.stringify({method: 'card', number: d.number, exp_month: +d.exp_month, exp_year: +d.exp_year, cvv: d.cvv})});
+    show($('#pay-msg'), 'Payment successful. Booking ' + r.booking.ref + ' is ' + r.booking.status + '.', true);
+    loadMine();
+  } catch (err) { show($('#pay-msg'), err.message, false); }
+};
+async function loadMine() {
+  const body = $('#mine-body');
+  const rows = await api('/api/bookings');
+  body.innerHTML = '';
+  if (!rows.length) { body.innerHTML = '<tr><td colspan="6" class="muted">No bookings yet.</td></tr>'; return; }
+  rows.forEach(b => {
+    const tr = body.insertRow(); tr.setAttribute('data-testid', 'booking-' + b.ref);
+    [b.ref, b.room_type + ' × ' + b.rooms, b.check_in + ' → ' + b.check_out, inr(b.total)].forEach(v => tr.insertCell().textContent = v);
+    const s = document.createElement('span'); s.className = 'pill ' + b.status; s.textContent = b.status; s.setAttribute('data-testid', 'status');
+    tr.insertCell().appendChild(s);
+    const cell = tr.insertCell();
+    if (b.allowed_actions.includes('cancel')) {
+      const btn = document.createElement('button'); btn.className = 'ghost'; btn.textContent = 'Cancel';
+      btn.setAttribute('aria-label', 'Cancel booking ' + b.ref); btn.setAttribute('data-testid', 'cancel-' + b.ref);
+      btn.onclick = async () => { try { const r = await api(`/api/bookings/${b.id}/cancel`, {method: 'POST', body: '{}'});
+        show($('#mine-msg'), 'Cancelled. Refund ' + inr(r.refund) + ' (rule ' + r.rule + ').', true); loadMine(); }
+        catch (err) { show($('#mine-msg'), err.message, false); } };
+      cell.appendChild(btn);
+    }
+  });
+}
+</script>
+</body>
+</html>
