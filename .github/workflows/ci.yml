@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Lint & static analysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Ruff
+        run: ruff check app tests tools
+      - name: Bandit (high severity gate)
+        run: bandit -r app -lll
+      - name: Packaging checks
+        run: python tools/check_package.py
+
+  test:
+    name: Test suite (Python ${{ matrix.python }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Install Chromium
+        run: python -m playwright install --with-deps chromium
+      - name: Run all 554 test cases with coverage
+        run: >
+          pytest -q --cov=app --cov-branch --cov-report=term --cov-report=xml
+          --junitxml=reports/junit.xml --html=reports/test_report.html --self-contained-html
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-evidence-py${{ matrix.python }}
+          path: |
+            reports/results.json
+            reports/junit.xml
+            reports/test_report.html
+            coverage.xml
+            reports/screenshots/
+
+  cross-browser:
+    name: Cross-browser E2E (Firefox, WebKit)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m playwright install --with-deps chromium firefox webkit
+      - run: pytest -q --tc -m e2e
