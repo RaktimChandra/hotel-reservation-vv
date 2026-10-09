@@ -4,7 +4,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TOP = "HRRS_SVV_Raktim_Chandra"
-SKIP_DIRS = {"node_modules", "__pycache__", ".pytest_cache", ".ruff_cache"}
+SKIP_DIRS = {"node_modules", "__pycache__", ".pytest_cache", ".ruff_cache", ".git", ".hypothesis", "venv"}
 SKIP_FILES = {"results_partial.json"}
 SKIP_SUFFIXES = {".sqlite", ".sqlite-wal", ".sqlite-shm", ".db"}
 START = """HRRS — Software Verification & Validation · SRMIST
