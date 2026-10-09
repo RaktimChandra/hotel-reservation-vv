@@ -1,0 +1,38 @@
+- banner:
+  - heading "Marina Crest · Reservations" [level=1]
+  - text: Not signed in
+- main:
+  - region "Sign in or create an account":
+    - heading "Sign in or create an account" [level=2]
+    - tablist:
+      - tab "Sign in" [selected]
+      - tab "Register"
+    - text: Email
+    - textbox "Email"
+    - text: Password
+    - textbox "Password"
+    - button "Sign in"
+    - status
+  - region "Find a room":
+    - heading "Find a room" [level=2]
+    - text: Check-in
+    - textbox "Check-in"
+    - text: Check-out
+    - textbox "Check-out"
+    - button "Search availability"
+    - status
+  - region "My bookings":
+    - heading "My bookings" [level=2]
+    - table:
+      - rowgroup:
+        - row "Ref Room Dates Total Status":
+          - columnheader "Ref"
+          - columnheader "Room"
+          - columnheader "Dates"
+          - columnheader "Total"
+          - columnheader "Status"
+          - columnheader
+      - rowgroup:
+        - row "Sign in to see your bookings.":
+          - cell "Sign in to see your bookings."
+    - status

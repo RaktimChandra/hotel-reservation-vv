@@ -1,0 +1,317 @@
+{
+ "executed_at": "2026-10-08T19:49:42",
+ "browser": "Chromium 141.0.7390.37 (headless)",
+ "L10N-001": {
+  "quote_text": "Subtotal\t₹4,18,800.00\nDiscount\t− ₹62,820.00\nGST (5%)\t₹17,799.00\nTotal\t₹3,73,779.00",
+  "amounts": [
+   "₹4,18,800.00",
+   "₹62,820.00",
+   "₹17,799.00",
+   "₹3,73,779.00"
+  ],
+  "amounts_at_least_1_lakh": [
+   "₹4,18,800.00",
+   "₹3,73,779.00"
+  ],
+  "all_indian_grouping": true,
+  "all_two_decimals": true
+ },
+ "L10N-002": {
+  "en-IN": {
+   "navigator_language": "en-IN",
+   "input_values": [
+    "2026-11-15",
+    "2026-11-18"
+   ],
+   "api_request": "GET :33729/api/availability?check_in=2026-11-15&check_out=2026-11-18",
+   "api_body": null
+  },
+  "en-US": {
+   "navigator_language": "en-US",
+   "input_values": [
+    "2026-11-15",
+    "2026-11-18"
+   ],
+   "api_request": "GET :33729/api/availability?check_in=2026-11-15&check_out=2026-11-18",
+   "api_body": null
+  }
+ },
+ "A11Y-001": {
+  "controls": [
+   {
+    "tag": "button",
+    "type": "submit",
+    "role": "tab",
+    "testid": "tab-login",
+    "name": "Sign in"
+   },
+   {
+    "tag": "button",
+    "type": "submit",
+    "role": "tab",
+    "testid": "tab-register",
+    "name": "Register"
+   },
+   {
+    "tag": "input",
+    "type": "email",
+    "role": "",
+    "testid": "login-email",
+    "name": "Email"
+   },
+   {
+    "tag": "input",
+    "type": "password",
+    "role": "",
+    "testid": "login-password",
+    "name": "Password"
+   },
+   {
+    "tag": "button",
+    "type": "submit",
+    "role": "",
+    "testid": "login-submit",
+    "name": "Sign in"
+   },
+   {
+    "tag": "input",
+    "type": "text",
+    "role": "",
+    "testid": "reg-name",
+    "name": "Full name"
+   },
+   {
+    "tag": "input",
+    "type": "email",
+    "role": "",
+    "testid": "reg-email",
+    "name": "Email"
+   },
+   {
+    "tag": "input",
+    "type": "text",
+    "role": "",
+    "testid": "reg-phone",
+    "name": "Mobile"
+   },
+   {
+    "tag": "input",
+    "type": "number",
+    "role": "",
+    "testid": "reg-age",
+    "name": "Age"
+   },
+   {
+    "tag": "input",
+    "type": "password",
+    "role": "",
+    "testid": "reg-password",
+    "name": "Password"
+   },
+   {
+    "tag": "button",
+    "type": "submit",
+    "role": "",
+    "testid": "reg-submit",
+    "name": "Create account"
+   },
+   {
+    "tag": "input",
+    "type": "date",
+    "role": "",
+    "testid": "check-in",
+    "name": "Check-in"
+   },
+   {
+    "tag": "input",
+    "type": "date",
+    "role": "",
+    "testid": "check-out",
+    "name": "Check-out"
+   },
+   {
+    "tag": "button",
+    "type": "submit",
+    "role": "",
+    "testid": "search-submit",
+    "name": "Search availability"
+   },
+   {
+    "tag": "select",
+    "type": "select-one",
+    "role": "",
+    "testid": "room-type",
+    "name": "Room type \n          STANDARDDELUXEFAMILYSUITE"
+   },
+   {
+    "tag": "input",
+    "type": "number",
+    "role": "",
+    "testid": "rooms",
+    "name": "Rooms"
+   },
+   {
+    "tag": "input",
+    "type": "number",
+    "role": "",
+    "testid": "adults",
+    "name": "Adults"
+   },
+   {
+    "tag": "input",
+    "type": "number",
+    "role": "",
+    "testid": "children",
+    "name": "Children"
+   },
+   {
+    "tag": "input",
+    "type": "number",
+    "role": "",
+    "testid": "extra-beds",
+    "name": "Extra beds"
+   },
+   {
+    "tag": "input",
+    "type": "text",
+    "role": "",
+    "testid": "promo",
+    "name": "Promo code"
+   },
+   {
+    "tag": "select",
+    "type": "select-one",
+    "role": "",
+    "testid": "refundable",
+    "name": "Rate Flexible (refundable)Saver (non-refundable)"
+   },
+   {
+    "tag": "button",
+    "type": "button",
+    "role": "",
+    "testid": "quote-btn",
+    "name": "Get price"
+   },
+   {
+    "tag": "button",
+    "type": "submit",
+    "role": "",
+    "testid": "book-submit",
+    "name": "Reserve"
+   },
+   {
+    "tag": "input",
+    "type": "text",
+    "role": "",
+    "testid": "card-number",
+    "name": "Card number"
+   },
+   {
+    "tag": "input",
+    "type": "number",
+    "role": "",
+    "testid": "card-month",
+    "name": "Expiry month"
+   },
+   {
+    "tag": "input",
+    "type": "number",
+    "role": "",
+    "testid": "card-year",
+    "name": "Expiry year"
+   },
+   {
+    "tag": "input",
+    "type": "password",
+    "role": "",
+    "testid": "card-cvv",
+    "name": "CVV"
+   },
+   {
+    "tag": "button",
+    "type": "submit",
+    "role": "",
+    "testid": "pay-submit",
+    "name": "Pay now"
+   }
+  ],
+  "unnamed_controls": [],
+  "live_regions": [
+   {
+    "testid": "who",
+    "live": "polite"
+   },
+   {
+    "testid": "auth-msg",
+    "live": "status"
+   },
+   {
+    "testid": "search-msg",
+    "live": "status"
+   },
+   {
+    "testid": "quote",
+    "live": "polite"
+   },
+   {
+    "testid": "book-msg",
+    "live": "status"
+   },
+   {
+    "testid": "pay-msg",
+    "live": "status"
+   },
+   {
+    "testid": "mine-msg",
+    "live": "status"
+   }
+  ],
+  "tab_order": [
+   "tab-login | outline=solid",
+   "tab-register | outline=solid",
+   "login-email | outline=solid",
+   "login-password | outline=solid",
+   "login-submit | outline=solid",
+   "check-in | outline=solid",
+   "check-in | outline=solid",
+   "check-in | outline=solid",
+   "check-in | outline=none",
+   "check-out | outline=solid",
+   "check-out | outline=solid",
+   "check-out | outline=solid",
+   "check-out | outline=none",
+   "search-submit | outline=solid"
+  ],
+  "login_error": {
+   "text": "Invalid email or password",
+   "announced_via": "status",
+   "own_role": null
+  },
+  "table_headers": [
+   {
+    "text": "Ref",
+    "hidden_from_at": false
+   },
+   {
+    "text": "Room",
+    "hidden_from_at": false
+   },
+   {
+    "text": "Dates",
+    "hidden_from_at": false
+   },
+   {
+    "text": "Total",
+    "hidden_from_at": false
+   },
+   {
+    "text": "Status",
+    "hidden_from_at": false
+   },
+   {
+    "text": "",
+    "hidden_from_at": true
+   }
+  ]
+ }
+}
