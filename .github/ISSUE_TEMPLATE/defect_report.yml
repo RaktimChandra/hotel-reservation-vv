@@ -1,0 +1,51 @@
+name: Defect report
+description: Report a defect in HRRS, using the same fields as the project's defect log
+title: "[DEF] "
+labels: ["defect"]
+body:
+  - type: input
+    id: found_by
+    attributes:
+      label: Found by (test case ID or technique)
+      placeholder: e.g. TC-REG-ECP-025 · exploratory session XS-02
+  - type: input
+    id: requirement
+    attributes:
+      label: Requirement
+      placeholder: e.g. FR-01
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options: [Critical, Major, Minor, Cosmetic]
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options: [P1, P2, P3, P4]
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: 1. … 2. … 3. …
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: OS, browser, Python version, commit
