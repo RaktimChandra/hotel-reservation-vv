@@ -1,0 +1,325 @@
+[
+  {
+    "cell": null,
+    "code": "C901",
+    "end_location": {
+      "column": 15,
+      "row": 72
+    },
+    "filename": "/home/claude/hrrs/app/main.py",
+    "fix": null,
+    "location": {
+      "column": 5,
+      "row": 72
+    },
+    "message": "`create_app` is too complex (35 > 10)",
+    "name": "complex-structure",
+    "noqa_row": 72,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/complex-structure"
+  },
+  {
+    "cell": null,
+    "code": "B008",
+    "end_location": {
+      "column": 46,
+      "row": 126
+    },
+    "filename": "/home/claude/hrrs/app/main.py",
+    "fix": null,
+    "location": {
+      "column": 25,
+      "row": 126
+    },
+    "message": "Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable",
+    "name": "function-call-in-default-argument",
+    "noqa_row": 126,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/function-call-in-default-argument"
+  },
+  {
+    "cell": null,
+    "code": "B008",
+    "end_location": {
+      "column": 38,
+      "row": 156
+    },
+    "filename": "/home/claude/hrrs/app/main.py",
+    "fix": null,
+    "location": {
+      "column": 17,
+      "row": 156
+    },
+    "message": "Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable",
+    "name": "function-call-in-default-argument",
+    "noqa_row": 156,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/function-call-in-default-argument"
+  },
+  {
+    "cell": null,
+    "code": "B008",
+    "end_location": {
+      "column": 67,
+      "row": 179
+    },
+    "filename": "/home/claude/hrrs/app/main.py",
+    "fix": null,
+    "location": {
+      "column": 46,
+      "row": 179
+    },
+    "message": "Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable",
+    "name": "function-call-in-default-argument",
+    "noqa_row": 179,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/function-call-in-default-argument"
+  },
+  {
+    "cell": null,
+    "code": "B008",
+    "end_location": {
+      "column": 47,
+      "row": 184
+    },
+    "filename": "/home/claude/hrrs/app/main.py",
+    "fix": null,
+    "location": {
+      "column": 26,
+      "row": 184
+    },
+    "message": "Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable",
+    "name": "function-call-in-default-argument",
+    "noqa_row": 184,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/function-call-in-default-argument"
+  },
+  {
+    "cell": null,
+    "code": "B008",
+    "end_location": {
+      "column": 64,
+      "row": 188
+    },
+    "filename": "/home/claude/hrrs/app/main.py",
+    "fix": null,
+    "location": {
+      "column": 43,
+      "row": 188
+    },
+    "message": "Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable",
+    "name": "function-call-in-default-argument",
+    "noqa_row": 188,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/function-call-in-default-argument"
+  },
+  {
+    "cell": null,
+    "code": "B008",
+    "end_location": {
+      "column": 73,
+      "row": 192
+    },
+    "filename": "/home/claude/hrrs/app/main.py",
+    "fix": null,
+    "location": {
+      "column": 52,
+      "row": 192
+    },
+    "message": "Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable",
+    "name": "function-call-in-default-argument",
+    "noqa_row": 192,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/function-call-in-default-argument"
+  },
+  {
+    "cell": null,
+    "code": "B008",
+    "end_location": {
+      "column": 89,
+      "row": 197
+    },
+    "filename": "/home/claude/hrrs/app/main.py",
+    "fix": null,
+    "location": {
+      "column": 68,
+      "row": 197
+    },
+    "message": "Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable",
+    "name": "function-call-in-default-argument",
+    "noqa_row": 197,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/function-call-in-default-argument"
+  },
+  {
+    "cell": null,
+    "code": "B008",
+    "end_location": {
+      "column": 77,
+      "row": 201
+    },
+    "filename": "/home/claude/hrrs/app/main.py",
+    "fix": null,
+    "location": {
+      "column": 58,
+      "row": 201
+    },
+    "message": "Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable",
+    "name": "function-call-in-default-argument",
+    "noqa_row": 201,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/function-call-in-default-argument"
+  },
+  {
+    "cell": null,
+    "code": "B008",
+    "end_location": {
+      "column": 79,
+      "row": 205
+    },
+    "filename": "/home/claude/hrrs/app/main.py",
+    "fix": null,
+    "location": {
+      "column": 60,
+      "row": 205
+    },
+    "message": "Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable",
+    "name": "function-call-in-default-argument",
+    "noqa_row": 205,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/function-call-in-default-argument"
+  },
+  {
+    "cell": null,
+    "code": "B008",
+    "end_location": {
+      "column": 41,
+      "row": 209
+    },
+    "filename": "/home/claude/hrrs/app/main.py",
+    "fix": null,
+    "location": {
+      "column": 22,
+      "row": 209
+    },
+    "message": "Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable",
+    "name": "function-call-in-default-argument",
+    "noqa_row": 209,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/function-call-in-default-argument"
+  },
+  {
+    "cell": null,
+    "code": "B008",
+    "end_location": {
+      "column": 67,
+      "row": 213
+    },
+    "filename": "/home/claude/hrrs/app/main.py",
+    "fix": null,
+    "location": {
+      "column": 48,
+      "row": 213
+    },
+    "message": "Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable",
+    "name": "function-call-in-default-argument",
+    "noqa_row": 213,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/function-call-in-default-argument"
+  },
+  {
+    "cell": null,
+    "code": "B008",
+    "end_location": {
+      "column": 71,
+      "row": 217
+    },
+    "filename": "/home/claude/hrrs/app/main.py",
+    "fix": null,
+    "location": {
+      "column": 52,
+      "row": 217
+    },
+    "message": "Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable",
+    "name": "function-call-in-default-argument",
+    "noqa_row": 217,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/function-call-in-default-argument"
+  },
+  {
+    "cell": null,
+    "code": "N818",
+    "end_location": {
+      "column": 15,
+      "row": 41
+    },
+    "filename": "/home/claude/hrrs/app/services.py",
+    "fix": null,
+    "location": {
+      "column": 7,
+      "row": 41
+    },
+    "message": "Exception name `NotFound` should be named with an Error suffix",
+    "name": "error-suffix-on-exception-name",
+    "noqa_row": 41,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/error-suffix-on-exception-name"
+  },
+  {
+    "cell": null,
+    "code": "N818",
+    "end_location": {
+      "column": 16,
+      "row": 45
+    },
+    "filename": "/home/claude/hrrs/app/services.py",
+    "fix": null,
+    "location": {
+      "column": 7,
+      "row": 45
+    },
+    "message": "Exception name `Forbidden` should be named with an Error suffix",
+    "name": "error-suffix-on-exception-name",
+    "noqa_row": 45,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/error-suffix-on-exception-name"
+  },
+  {
+    "cell": null,
+    "code": "S608",
+    "end_location": {
+      "column": 36,
+      "row": 155
+    },
+    "filename": "/home/claude/hrrs/app/services.py",
+    "fix": null,
+    "location": {
+      "column": 13,
+      "row": 151
+    },
+    "message": "Possible SQL injection vector through string-based query construction",
+    "name": "hardcoded-sql-expression",
+    "noqa_row": 155,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/hardcoded-sql-expression"
+  },
+  {
+    "cell": null,
+    "code": "S608",
+    "end_location": {
+      "column": 62,
+      "row": 260
+    },
+    "filename": "/home/claude/hrrs/app/services.py",
+    "fix": null,
+    "location": {
+      "column": 22,
+      "row": 260
+    },
+    "message": "Possible SQL injection vector through string-based query construction",
+    "name": "hardcoded-sql-expression",
+    "noqa_row": 260,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/hardcoded-sql-expression"
+  }
+]
