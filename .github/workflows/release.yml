@@ -74,7 +74,7 @@ jobs:
           path: deliverables/
       - name: Publish release
         if: steps.version.outputs.exists == 'false'
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ steps.version.outputs.tag }}
           target_commitish: ${{ github.sha }}
