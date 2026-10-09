@@ -1,0 +1,2763 @@
+{
+ "summary": {
+  "total": 270,
+  "killed": 264,
+  "survived": 6,
+  "raw_score_pct": 97.78,
+  "minutes": 4.6,
+  "by_operator": {
+   "UOD": {
+    "total": 29,
+    "killed": 29
+   },
+   "ROR": {
+    "total": 122,
+    "killed": 120
+   },
+   "LCR": {
+    "total": 25,
+    "killed": 25
+   },
+   "CRP": {
+    "total": 52,
+    "killed": 48
+   },
+   "AOR": {
+    "total": 32,
+    "killed": 32
+   },
+   "BRV": {
+    "total": 10,
+    "killed": 10
+   }
+  },
+  "by_file": {
+   "app/domain/validation.py": {
+    "total": 74,
+    "killed": 74
+   },
+   "app/domain/pricing.py": {
+    "total": 90,
+    "killed": 89
+   },
+   "app/domain/cancellation.py": {
+    "total": 35,
+    "killed": 35
+   },
+   "app/domain/payment.py": {
+    "total": 44,
+    "killed": 42
+   },
+   "app/domain/state.py": {
+    "total": 4,
+    "killed": 4
+   },
+   "app/domain/metrics.py": {
+    "total": 23,
+    "killed": 20
+   }
+  }
+ },
+ "mutants": [
+  {
+   "id": "validation-000",
+   "file": "app/domain/validation.py",
+   "line": 34,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_name_length[TC-REG-BVA-001]",
+   "seconds": 1.22
+  },
+  {
+   "id": "validation-001",
+   "file": "app/domain/validation.py",
+   "line": 37,
+   "operator": "ROR",
+   "change": "< → <=",
+   "status": "KILLED",
+   "killed_by": "test_name_length[TC-REG-BVA-002]",
+   "seconds": 1.26
+  },
+  {
+   "id": "validation-002",
+   "file": "app/domain/validation.py",
+   "line": 37,
+   "operator": "ROR",
+   "change": "< → >",
+   "status": "KILLED",
+   "killed_by": "test_name_length[TC-REG-BVA-001]",
+   "seconds": 1.23
+  },
+  {
+   "id": "validation-003",
+   "file": "app/domain/validation.py",
+   "line": 39,
+   "operator": "ROR",
+   "change": "> → >=",
+   "status": "KILLED",
+   "killed_by": "test_name_length[TC-REG-BVA-006]",
+   "seconds": 1.29
+  },
+  {
+   "id": "validation-004",
+   "file": "app/domain/validation.py",
+   "line": 39,
+   "operator": "ROR",
+   "change": "> → <",
+   "status": "KILLED",
+   "killed_by": "test_name_length[TC-REG-BVA-002]",
+   "seconds": 1.14
+  },
+  {
+   "id": "validation-005",
+   "file": "app/domain/validation.py",
+   "line": 41,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_name_length[TC-REG-BVA-002]",
+   "seconds": 1.3
+  },
+  {
+   "id": "validation-006",
+   "file": "app/domain/validation.py",
+   "line": 47,
+   "operator": "LCR",
+   "change": "or → and",
+   "status": "KILLED",
+   "killed_by": "test_error_guessing[TC-EG-008]",
+   "seconds": 4.37
+  },
+  {
+   "id": "validation-007",
+   "file": "app/domain/validation.py",
+   "line": 47,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_email[TC-REG-ECP-001]",
+   "seconds": 4.51
+  },
+  {
+   "id": "validation-008",
+   "file": "app/domain/validation.py",
+   "line": 47,
+   "operator": "ROR",
+   "change": "> → >=",
+   "status": "KILLED",
+   "killed_by": "test_email_length_boundary",
+   "seconds": 3.29
+  },
+  {
+   "id": "validation-009",
+   "file": "app/domain/validation.py",
+   "line": 47,
+   "operator": "ROR",
+   "change": "> → <",
+   "status": "KILLED",
+   "killed_by": "test_error_guessing[TC-EG-008]",
+   "seconds": 3.2
+  },
+  {
+   "id": "validation-010",
+   "file": "app/domain/validation.py",
+   "line": 47,
+   "operator": "CRP",
+   "change": "254 → 255",
+   "status": "KILLED",
+   "killed_by": "test_email_length_boundary",
+   "seconds": 3.37
+  },
+  {
+   "id": "validation-011",
+   "file": "app/domain/validation.py",
+   "line": 47,
+   "operator": "CRP",
+   "change": "254 → 253",
+   "status": "KILLED",
+   "killed_by": "test_email_length_boundary",
+   "seconds": 3.42
+  },
+  {
+   "id": "validation-012",
+   "file": "app/domain/validation.py",
+   "line": 47,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_email[TC-REG-ECP-001]",
+   "seconds": 3.22
+  },
+  {
+   "id": "validation-013",
+   "file": "app/domain/validation.py",
+   "line": 53,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_phone[TC-REG-ECP-013]",
+   "seconds": 3.27
+  },
+  {
+   "id": "validation-014",
+   "file": "app/domain/validation.py",
+   "line": 58,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_error_guessing[TC-EG-010]",
+   "seconds": 3.19
+  },
+  {
+   "id": "validation-015",
+   "file": "app/domain/validation.py",
+   "line": 64,
+   "operator": "LCR",
+   "change": "or → and",
+   "status": "KILLED",
+   "killed_by": "test_error_guessing[TC-EG-005]",
+   "seconds": 4.79
+  },
+  {
+   "id": "validation-016",
+   "file": "app/domain/validation.py",
+   "line": 64,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_age[TC-REG-BVA-008]",
+   "seconds": 1.25
+  },
+  {
+   "id": "validation-017",
+   "file": "app/domain/validation.py",
+   "line": 66,
+   "operator": "ROR",
+   "change": "< → <=",
+   "status": "KILLED",
+   "killed_by": "test_age[TC-REG-BVA-009]",
+   "seconds": 1.44
+  },
+  {
+   "id": "validation-018",
+   "file": "app/domain/validation.py",
+   "line": 66,
+   "operator": "ROR",
+   "change": "< → >",
+   "status": "KILLED",
+   "killed_by": "test_age[TC-REG-BVA-008]",
+   "seconds": 1.19
+  },
+  {
+   "id": "validation-019",
+   "file": "app/domain/validation.py",
+   "line": 68,
+   "operator": "ROR",
+   "change": "> → >=",
+   "status": "KILLED",
+   "killed_by": "test_age[TC-REG-BVA-013]",
+   "seconds": 1.19
+  },
+  {
+   "id": "validation-020",
+   "file": "app/domain/validation.py",
+   "line": 68,
+   "operator": "ROR",
+   "change": "> → <",
+   "status": "KILLED",
+   "killed_by": "test_age[TC-REG-BVA-009]",
+   "seconds": 1.16
+  },
+  {
+   "id": "validation-021",
+   "file": "app/domain/validation.py",
+   "line": 76,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_password_length[TC-AUTH-BVA-001]",
+   "seconds": 1.19
+  },
+  {
+   "id": "validation-022",
+   "file": "app/domain/validation.py",
+   "line": 78,
+   "operator": "ROR",
+   "change": "< → <=",
+   "status": "KILLED",
+   "killed_by": "test_password_length[TC-AUTH-BVA-002]",
+   "seconds": 1.23
+  },
+  {
+   "id": "validation-023",
+   "file": "app/domain/validation.py",
+   "line": 78,
+   "operator": "ROR",
+   "change": "< → >",
+   "status": "KILLED",
+   "killed_by": "test_password_length[TC-AUTH-BVA-001]",
+   "seconds": 1.21
+  },
+  {
+   "id": "validation-024",
+   "file": "app/domain/validation.py",
+   "line": 80,
+   "operator": "ROR",
+   "change": "> → >=",
+   "status": "KILLED",
+   "killed_by": "test_password_length[TC-AUTH-BVA-006]",
+   "seconds": 1.28
+  },
+  {
+   "id": "validation-025",
+   "file": "app/domain/validation.py",
+   "line": 80,
+   "operator": "ROR",
+   "change": "> → <",
+   "status": "KILLED",
+   "killed_by": "test_password_length[TC-AUTH-BVA-002]",
+   "seconds": 1.22
+  },
+  {
+   "id": "validation-026",
+   "file": "app/domain/validation.py",
+   "line": 82,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_password_length[TC-AUTH-BVA-002]",
+   "seconds": 1.3
+  },
+  {
+   "id": "validation-027",
+   "file": "app/domain/validation.py",
+   "line": 84,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_password_length[TC-AUTH-BVA-002]",
+   "seconds": 1.24
+  },
+  {
+   "id": "validation-028",
+   "file": "app/domain/validation.py",
+   "line": 86,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_password_length[TC-AUTH-BVA-002]",
+   "seconds": 1.19
+  },
+  {
+   "id": "validation-029",
+   "file": "app/domain/validation.py",
+   "line": 88,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_password_length[TC-AUTH-BVA-002]",
+   "seconds": 1.16
+  },
+  {
+   "id": "validation-030",
+   "file": "app/domain/validation.py",
+   "line": 88,
+   "operator": "ROR",
+   "change": "in → not in",
+   "status": "KILLED",
+   "killed_by": "test_password_classes[TC-AUTH-ECP-005]",
+   "seconds": 3.53
+  },
+  {
+   "id": "validation-031",
+   "file": "app/domain/validation.py",
+   "line": 98,
+   "operator": "AOR",
+   "change": "+ → -",
+   "status": "KILLED",
+   "killed_by": "test_password_length[TC-AUTH-BVA-001]",
+   "seconds": 1.29
+  },
+  {
+   "id": "validation-032",
+   "file": "app/domain/validation.py",
+   "line": 104,
+   "operator": "LCR",
+   "change": "or → and",
+   "status": "KILLED",
+   "killed_by": "test_one_bad_date",
+   "seconds": 3.44
+  },
+  {
+   "id": "validation-033",
+   "file": "app/domain/validation.py",
+   "line": 104,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_nights[TC-SRCH-BVA-001]",
+   "seconds": 1.25
+  },
+  {
+   "id": "validation-034",
+   "file": "app/domain/validation.py",
+   "line": 104,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_nights[TC-SRCH-BVA-001]",
+   "seconds": 1.22
+  },
+  {
+   "id": "validation-035",
+   "file": "app/domain/validation.py",
+   "line": 106,
+   "operator": "ROR",
+   "change": "< → <=",
+   "status": "KILLED",
+   "killed_by": "test_advance_window[TC-SRCH-BVA-009]",
+   "seconds": 1.24
+  },
+  {
+   "id": "validation-036",
+   "file": "app/domain/validation.py",
+   "line": 106,
+   "operator": "ROR",
+   "change": "< → >",
+   "status": "KILLED",
+   "killed_by": "test_nights[TC-SRCH-BVA-001]",
+   "seconds": 1.24
+  },
+  {
+   "id": "validation-037",
+   "file": "app/domain/validation.py",
+   "line": 108,
+   "operator": "ROR",
+   "change": "> → >=",
+   "status": "KILLED",
+   "killed_by": "test_advance_window[TC-SRCH-BVA-013]",
+   "seconds": 1.21
+  },
+  {
+   "id": "validation-038",
+   "file": "app/domain/validation.py",
+   "line": 108,
+   "operator": "ROR",
+   "change": "> → <",
+   "status": "KILLED",
+   "killed_by": "test_nights[TC-SRCH-BVA-001]",
+   "seconds": 1.22
+  },
+  {
+   "id": "validation-039",
+   "file": "app/domain/validation.py",
+   "line": 108,
+   "operator": "AOR",
+   "change": "+ → -",
+   "status": "KILLED",
+   "killed_by": "test_nights[TC-SRCH-BVA-001]",
+   "seconds": 1.2
+  },
+  {
+   "id": "validation-040",
+   "file": "app/domain/validation.py",
+   "line": 110,
+   "operator": "AOR",
+   "change": "- → +",
+   "status": "KILLED",
+   "killed_by": "test_nights[TC-SRCH-BVA-001]",
+   "seconds": 1.2
+  },
+  {
+   "id": "validation-041",
+   "file": "app/domain/validation.py",
+   "line": 111,
+   "operator": "ROR",
+   "change": "< → <=",
+   "status": "KILLED",
+   "killed_by": "test_nights[TC-SRCH-BVA-002]",
+   "seconds": 1.21
+  },
+  {
+   "id": "validation-042",
+   "file": "app/domain/validation.py",
+   "line": 111,
+   "operator": "ROR",
+   "change": "< → >",
+   "status": "KILLED",
+   "killed_by": "test_nights[TC-SRCH-BVA-001]",
+   "seconds": 1.2
+  },
+  {
+   "id": "validation-043",
+   "file": "app/domain/validation.py",
+   "line": 113,
+   "operator": "ROR",
+   "change": "> → >=",
+   "status": "KILLED",
+   "killed_by": "test_nights[TC-SRCH-BVA-006]",
+   "seconds": 1.2
+  },
+  {
+   "id": "validation-044",
+   "file": "app/domain/validation.py",
+   "line": 113,
+   "operator": "ROR",
+   "change": "> → <",
+   "status": "KILLED",
+   "killed_by": "test_nights[TC-SRCH-BVA-002]",
+   "seconds": 1.18
+  },
+  {
+   "id": "validation-045",
+   "file": "app/domain/validation.py",
+   "line": 118,
+   "operator": "BRV",
+   "change": "False → True",
+   "status": "KILLED",
+   "killed_by": "test_occupancy_default_flag",
+   "seconds": 3.92
+  },
+  {
+   "id": "validation-046",
+   "file": "app/domain/validation.py",
+   "line": 122,
+   "operator": "LCR",
+   "change": "or → and",
+   "status": "KILLED",
+   "killed_by": "test_bool_counts",
+   "seconds": 4.08
+  },
+  {
+   "id": "validation-047",
+   "file": "app/domain/validation.py",
+   "line": 122,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_occupancy[TC-BOOK-BVA-015]",
+   "seconds": 1.25
+  },
+  {
+   "id": "validation-048",
+   "file": "app/domain/validation.py",
+   "line": 124,
+   "operator": "ROR",
+   "change": "< → <=",
+   "status": "KILLED",
+   "killed_by": "test_occupancy[TC-BOOK-BVA-016]",
+   "seconds": 1.27
+  },
+  {
+   "id": "validation-049",
+   "file": "app/domain/validation.py",
+   "line": 124,
+   "operator": "ROR",
+   "change": "< → >",
+   "status": "KILLED",
+   "killed_by": "test_occupancy[TC-BOOK-BVA-015]",
+   "seconds": 1.27
+  },
+  {
+   "id": "validation-050",
+   "file": "app/domain/validation.py",
+   "line": 124,
+   "operator": "CRP",
+   "change": "1 → 2",
+   "status": "KILLED",
+   "killed_by": "test_occupancy[TC-BOOK-BVA-016]",
+   "seconds": 1.24
+  },
+  {
+   "id": "validation-051",
+   "file": "app/domain/validation.py",
+   "line": 124,
+   "operator": "CRP",
+   "change": "1 → 0",
+   "status": "KILLED",
+   "killed_by": "test_occupancy[TC-BOOK-BVA-015]",
+   "seconds": 1.31
+  },
+  {
+   "id": "validation-052",
+   "file": "app/domain/validation.py",
+   "line": 126,
+   "operator": "ROR",
+   "change": "< → <=",
+   "status": "KILLED",
+   "killed_by": "test_occupancy[TC-BOOK-BVA-016]",
+   "seconds": 1.2
+  },
+  {
+   "id": "validation-053",
+   "file": "app/domain/validation.py",
+   "line": 126,
+   "operator": "ROR",
+   "change": "< → >",
+   "status": "KILLED",
+   "killed_by": "test_occupancy[TC-BOOK-BVA-017]",
+   "seconds": 1.21
+  },
+  {
+   "id": "validation-054",
+   "file": "app/domain/validation.py",
+   "line": 126,
+   "operator": "CRP",
+   "change": "0 → 1",
+   "status": "KILLED",
+   "killed_by": "test_occupancy[TC-BOOK-BVA-016]",
+   "seconds": 1.22
+  },
+  {
+   "id": "validation-055",
+   "file": "app/domain/validation.py",
+   "line": 126,
+   "operator": "CRP",
+   "change": "0 → -1",
+   "status": "KILLED",
+   "killed_by": "test_occupancy[TC-BOOK-BVA-025]",
+   "seconds": 1.22
+  },
+  {
+   "id": "validation-056",
+   "file": "app/domain/validation.py",
+   "line": 128,
+   "operator": "LCR",
+   "change": "and → or",
+   "status": "KILLED",
+   "killed_by": "test_occupancy[TC-BOOK-BVA-019]",
+   "seconds": 1.31
+  },
+  {
+   "id": "validation-057",
+   "file": "app/domain/validation.py",
+   "line": 128,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_occupancy[TC-BOOK-BVA-019]",
+   "seconds": 1.21
+  },
+  {
+   "id": "validation-058",
+   "file": "app/domain/validation.py",
+   "line": 130,
+   "operator": "AOR",
+   "change": "+ → -",
+   "status": "KILLED",
+   "killed_by": "test_occupancy[TC-BOOK-BVA-019]",
+   "seconds": 1.24
+  },
+  {
+   "id": "validation-059",
+   "file": "app/domain/validation.py",
+   "line": 131,
+   "operator": "AOR",
+   "change": "+ → -",
+   "status": "KILLED",
+   "killed_by": "test_occupancy[TC-BOOK-BVA-018]",
+   "seconds": 1.25
+  },
+  {
+   "id": "validation-060",
+   "file": "app/domain/validation.py",
+   "line": 132,
+   "operator": "ROR",
+   "change": "> → >=",
+   "status": "KILLED",
+   "killed_by": "test_occupancy[TC-BOOK-BVA-017]",
+   "seconds": 1.24
+  },
+  {
+   "id": "validation-061",
+   "file": "app/domain/validation.py",
+   "line": 132,
+   "operator": "ROR",
+   "change": "> → <",
+   "status": "KILLED",
+   "killed_by": "test_occupancy[TC-BOOK-BVA-016]",
+   "seconds": 1.27
+  },
+  {
+   "id": "validation-062",
+   "file": "app/domain/validation.py",
+   "line": 138,
+   "operator": "LCR",
+   "change": "or → and",
+   "status": "KILLED",
+   "killed_by": "test_bool_counts",
+   "seconds": 3.33
+  },
+  {
+   "id": "validation-063",
+   "file": "app/domain/validation.py",
+   "line": 138,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_guest_count[TC-BOOK-BVA-001]",
+   "seconds": 1.19
+  },
+  {
+   "id": "validation-064",
+   "file": "app/domain/validation.py",
+   "line": 140,
+   "operator": "ROR",
+   "change": "< → <=",
+   "status": "KILLED",
+   "killed_by": "test_guest_count[TC-BOOK-BVA-002]",
+   "seconds": 1.23
+  },
+  {
+   "id": "validation-065",
+   "file": "app/domain/validation.py",
+   "line": 140,
+   "operator": "ROR",
+   "change": "< → >",
+   "status": "KILLED",
+   "killed_by": "test_guest_count[TC-BOOK-BVA-001]",
+   "seconds": 1.19
+  },
+  {
+   "id": "validation-066",
+   "file": "app/domain/validation.py",
+   "line": 142,
+   "operator": "ROR",
+   "change": "> → >=",
+   "status": "KILLED",
+   "killed_by": "test_guest_count[TC-BOOK-BVA-006]",
+   "seconds": 1.25
+  },
+  {
+   "id": "validation-067",
+   "file": "app/domain/validation.py",
+   "line": 142,
+   "operator": "ROR",
+   "change": "> → <",
+   "status": "KILLED",
+   "killed_by": "test_guest_count[TC-BOOK-BVA-002]",
+   "seconds": 1.18
+  },
+  {
+   "id": "validation-068",
+   "file": "app/domain/validation.py",
+   "line": 148,
+   "operator": "LCR",
+   "change": "or → and",
+   "status": "KILLED",
+   "killed_by": "test_error_guessing[TC-EG-006]",
+   "seconds": 3.32
+  },
+  {
+   "id": "validation-069",
+   "file": "app/domain/validation.py",
+   "line": 148,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_room_count[TC-BOOK-BVA-008]",
+   "seconds": 1.18
+  },
+  {
+   "id": "validation-070",
+   "file": "app/domain/validation.py",
+   "line": 150,
+   "operator": "ROR",
+   "change": "< → <=",
+   "status": "KILLED",
+   "killed_by": "test_room_count[TC-BOOK-BVA-009]",
+   "seconds": 1.3
+  },
+  {
+   "id": "validation-071",
+   "file": "app/domain/validation.py",
+   "line": 150,
+   "operator": "ROR",
+   "change": "< → >",
+   "status": "KILLED",
+   "killed_by": "test_room_count[TC-BOOK-BVA-008]",
+   "seconds": 1.28
+  },
+  {
+   "id": "validation-072",
+   "file": "app/domain/validation.py",
+   "line": 152,
+   "operator": "ROR",
+   "change": "> → >=",
+   "status": "KILLED",
+   "killed_by": "test_room_count[TC-BOOK-BVA-013]",
+   "seconds": 1.21
+  },
+  {
+   "id": "validation-073",
+   "file": "app/domain/validation.py",
+   "line": 152,
+   "operator": "ROR",
+   "change": "> → <",
+   "status": "KILLED",
+   "killed_by": "test_room_count[TC-BOOK-BVA-009]",
+   "seconds": 1.26
+  },
+  {
+   "id": "pricing-000",
+   "file": "app/domain/pricing.py",
+   "line": 54,
+   "operator": "ROR",
+   "change": "< → <=",
+   "status": "KILLED",
+   "killed_by": "test_gst_slab[TC-PRC-BVA-001]",
+   "seconds": 1.22
+  },
+  {
+   "id": "pricing-001",
+   "file": "app/domain/pricing.py",
+   "line": 54,
+   "operator": "ROR",
+   "change": "< → >",
+   "status": "KILLED",
+   "killed_by": "test_gst_slab[TC-PRC-BVA-002]",
+   "seconds": 1.3
+  },
+  {
+   "id": "pricing-002",
+   "file": "app/domain/pricing.py",
+   "line": 54,
+   "operator": "CRP",
+   "change": "0 → 1",
+   "status": "KILLED",
+   "killed_by": "test_gst_slab[TC-PRC-BVA-001]",
+   "seconds": 1.26
+  },
+  {
+   "id": "pricing-003",
+   "file": "app/domain/pricing.py",
+   "line": 54,
+   "operator": "CRP",
+   "change": "0 → -1",
+   "status": "KILLED",
+   "killed_by": "test_gst_slab[TC-PRC-BVA-011]",
+   "seconds": 1.27
+  },
+  {
+   "id": "pricing-004",
+   "file": "app/domain/pricing.py",
+   "line": 56,
+   "operator": "ROR",
+   "change": "< → <=",
+   "status": "KILLED",
+   "killed_by": "test_gst_slab[TC-PRC-BVA-004]",
+   "seconds": 1.23
+  },
+  {
+   "id": "pricing-005",
+   "file": "app/domain/pricing.py",
+   "line": 56,
+   "operator": "ROR",
+   "change": "< → >",
+   "status": "KILLED",
+   "killed_by": "test_gst_slab[TC-PRC-BVA-001]",
+   "seconds": 1.22
+  },
+  {
+   "id": "pricing-006",
+   "file": "app/domain/pricing.py",
+   "line": 58,
+   "operator": "ROR",
+   "change": "<= → <",
+   "status": "KILLED",
+   "killed_by": "test_gst_slab[TC-PRC-BVA-008]",
+   "seconds": 1.19
+  },
+  {
+   "id": "pricing-007",
+   "file": "app/domain/pricing.py",
+   "line": 58,
+   "operator": "ROR",
+   "change": "<= → >=",
+   "status": "KILLED",
+   "killed_by": "test_gst_slab[TC-PRC-BVA-004]",
+   "seconds": 1.18
+  },
+  {
+   "id": "pricing-008",
+   "file": "app/domain/pricing.py",
+   "line": 65,
+   "operator": "ROR",
+   "change": "in → not in",
+   "status": "KILLED",
+   "killed_by": "test_pairwise_quote[TC-QTE-PW-001]",
+   "seconds": 1.28
+  },
+  {
+   "id": "pricing-009",
+   "file": "app/domain/pricing.py",
+   "line": 69,
+   "operator": "LCR",
+   "change": "or → and",
+   "status": "KILLED",
+   "killed_by": "test_peak_season[TC-PRC-BVA-021]",
+   "seconds": 1.2
+  },
+  {
+   "id": "pricing-010",
+   "file": "app/domain/pricing.py",
+   "line": 69,
+   "operator": "LCR",
+   "change": "and → or",
+   "status": "KILLED",
+   "killed_by": "test_peak_season[TC-PRC-BVA-020]",
+   "seconds": 1.23
+  },
+  {
+   "id": "pricing-011",
+   "file": "app/domain/pricing.py",
+   "line": 69,
+   "operator": "ROR",
+   "change": "== → !=",
+   "status": "KILLED",
+   "killed_by": "test_peak_season[TC-PRC-BVA-021]",
+   "seconds": 1.2
+  },
+  {
+   "id": "pricing-012",
+   "file": "app/domain/pricing.py",
+   "line": 69,
+   "operator": "CRP",
+   "change": "12 → 13",
+   "status": "KILLED",
+   "killed_by": "test_peak_season[TC-PRC-BVA-021]",
+   "seconds": 1.21
+  },
+  {
+   "id": "pricing-013",
+   "file": "app/domain/pricing.py",
+   "line": 69,
+   "operator": "CRP",
+   "change": "12 → 11",
+   "status": "KILLED",
+   "killed_by": "test_peak_season[TC-PRC-BVA-021]",
+   "seconds": 1.19
+  },
+  {
+   "id": "pricing-014",
+   "file": "app/domain/pricing.py",
+   "line": 69,
+   "operator": "ROR",
+   "change": ">= → >",
+   "status": "KILLED",
+   "killed_by": "test_peak_season[TC-PRC-BVA-021]",
+   "seconds": 1.2
+  },
+  {
+   "id": "pricing-015",
+   "file": "app/domain/pricing.py",
+   "line": 69,
+   "operator": "ROR",
+   "change": ">= → <=",
+   "status": "KILLED",
+   "killed_by": "test_peak_season[TC-PRC-BVA-020]",
+   "seconds": 1.23
+  },
+  {
+   "id": "pricing-016",
+   "file": "app/domain/pricing.py",
+   "line": 69,
+   "operator": "CRP",
+   "change": "20 → 21",
+   "status": "KILLED",
+   "killed_by": "test_peak_season[TC-PRC-BVA-021]",
+   "seconds": 1.21
+  },
+  {
+   "id": "pricing-017",
+   "file": "app/domain/pricing.py",
+   "line": 69,
+   "operator": "CRP",
+   "change": "20 → 19",
+   "status": "KILLED",
+   "killed_by": "test_peak_season[TC-PRC-BVA-020]",
+   "seconds": 1.26
+  },
+  {
+   "id": "pricing-018",
+   "file": "app/domain/pricing.py",
+   "line": 69,
+   "operator": "LCR",
+   "change": "and → or",
+   "status": "KILLED",
+   "killed_by": "test_peak_season[TC-PRC-BVA-027]",
+   "seconds": 1.27
+  },
+  {
+   "id": "pricing-019",
+   "file": "app/domain/pricing.py",
+   "line": 69,
+   "operator": "ROR",
+   "change": "== → !=",
+   "status": "KILLED",
+   "killed_by": "test_peak_season[TC-PRC-BVA-024]",
+   "seconds": 1.33
+  },
+  {
+   "id": "pricing-020",
+   "file": "app/domain/pricing.py",
+   "line": 69,
+   "operator": "CRP",
+   "change": "1 → 2",
+   "status": "KILLED",
+   "killed_by": "test_peak_season[TC-PRC-BVA-024]",
+   "seconds": 1.34
+  },
+  {
+   "id": "pricing-021",
+   "file": "app/domain/pricing.py",
+   "line": 69,
+   "operator": "CRP",
+   "change": "1 → 0",
+   "status": "KILLED",
+   "killed_by": "test_peak_season[TC-PRC-BVA-024]",
+   "seconds": 1.28
+  },
+  {
+   "id": "pricing-022",
+   "file": "app/domain/pricing.py",
+   "line": 69,
+   "operator": "ROR",
+   "change": "<= → <",
+   "status": "KILLED",
+   "killed_by": "test_peak_season[TC-PRC-BVA-026]",
+   "seconds": 1.28
+  },
+  {
+   "id": "pricing-023",
+   "file": "app/domain/pricing.py",
+   "line": 69,
+   "operator": "ROR",
+   "change": "<= → >=",
+   "status": "KILLED",
+   "killed_by": "test_peak_season[TC-PRC-BVA-024]",
+   "seconds": 1.29
+  },
+  {
+   "id": "pricing-024",
+   "file": "app/domain/pricing.py",
+   "line": 69,
+   "operator": "CRP",
+   "change": "5 → 6",
+   "status": "KILLED",
+   "killed_by": "test_peak_season[TC-PRC-BVA-027]",
+   "seconds": 1.31
+  },
+  {
+   "id": "pricing-025",
+   "file": "app/domain/pricing.py",
+   "line": 69,
+   "operator": "CRP",
+   "change": "5 → 4",
+   "status": "KILLED",
+   "killed_by": "test_peak_season[TC-PRC-BVA-026]",
+   "seconds": 1.28
+  },
+  {
+   "id": "pricing-026",
+   "file": "app/domain/pricing.py",
+   "line": 83,
+   "operator": "ROR",
+   "change": ">= → >",
+   "status": "KILLED",
+   "killed_by": "test_long_stay[TC-PRC-BVA-014]",
+   "seconds": 1.26
+  },
+  {
+   "id": "pricing-027",
+   "file": "app/domain/pricing.py",
+   "line": 83,
+   "operator": "ROR",
+   "change": ">= → <=",
+   "status": "KILLED",
+   "killed_by": "test_long_stay[TC-PRC-BVA-012]",
+   "seconds": 1.34
+  },
+  {
+   "id": "pricing-028",
+   "file": "app/domain/pricing.py",
+   "line": 89,
+   "operator": "LCR",
+   "change": "or → and",
+   "status": "KILLED",
+   "killed_by": "test_pairwise_quote[TC-QTE-PW-004]",
+   "seconds": 1.35
+  },
+  {
+   "id": "pricing-029",
+   "file": "app/domain/pricing.py",
+   "line": 90,
+   "operator": "ROR",
+   "change": "not in → in",
+   "status": "KILLED",
+   "killed_by": "test_quote_two_variable_bva[TC-QTE-BVA2-001]",
+   "seconds": 1.34
+  },
+  {
+   "id": "pricing-030",
+   "file": "app/domain/pricing.py",
+   "line": 96,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_promo_bounds[TC-PRC-BVA-028]",
+   "seconds": 1.31
+  },
+  {
+   "id": "pricing-031",
+   "file": "app/domain/pricing.py",
+   "line": 99,
+   "operator": "ROR",
+   "change": "not in → in",
+   "status": "KILLED",
+   "killed_by": "test_promo_bounds[TC-PRC-BVA-028]",
+   "seconds": 1.27
+  },
+  {
+   "id": "pricing-032",
+   "file": "app/domain/pricing.py",
+   "line": 102,
+   "operator": "ROR",
+   "change": "< → <=",
+   "status": "KILLED",
+   "killed_by": "test_promo_bounds[TC-PRC-BVA-029]",
+   "seconds": 1.34
+  },
+  {
+   "id": "pricing-033",
+   "file": "app/domain/pricing.py",
+   "line": 102,
+   "operator": "ROR",
+   "change": "< → >",
+   "status": "KILLED",
+   "killed_by": "test_promo_bounds[TC-PRC-BVA-028]",
+   "seconds": 1.31
+  },
+  {
+   "id": "pricing-034",
+   "file": "app/domain/pricing.py",
+   "line": 104,
+   "operator": "ROR",
+   "change": "== → !=",
+   "status": "KILLED",
+   "killed_by": "test_promo_bounds[TC-PRC-BVA-029]",
+   "seconds": 1.4
+  },
+  {
+   "id": "pricing-035",
+   "file": "app/domain/pricing.py",
+   "line": 104,
+   "operator": "AOR",
+   "change": "* → /",
+   "status": "KILLED",
+   "killed_by": "test_promo_bounds[TC-PRC-BVA-029]",
+   "seconds": 1.37
+  },
+  {
+   "id": "pricing-036",
+   "file": "app/domain/pricing.py",
+   "line": 105,
+   "operator": "LCR",
+   "change": "and → or",
+   "status": "KILLED",
+   "killed_by": "test_promo_bounds[TC-PRC-BVA-029]",
+   "seconds": 1.3
+  },
+  {
+   "id": "pricing-037",
+   "file": "app/domain/pricing.py",
+   "line": 105,
+   "operator": "ROR",
+   "change": "> → >=",
+   "status": "SURVIVED",
+   "killed_by": "",
+   "seconds": 3.41
+  },
+  {
+   "id": "pricing-038",
+   "file": "app/domain/pricing.py",
+   "line": 105,
+   "operator": "ROR",
+   "change": "> → <",
+   "status": "KILLED",
+   "killed_by": "test_promo_bounds[TC-PRC-BVA-029]",
+   "seconds": 1.28
+  },
+  {
+   "id": "pricing-039",
+   "file": "app/domain/pricing.py",
+   "line": 140,
+   "operator": "AOR",
+   "change": "- → +",
+   "status": "KILLED",
+   "killed_by": "test_quote_two_variable_bva[TC-QTE-BVA2-001]",
+   "seconds": 1.29
+  },
+  {
+   "id": "pricing-040",
+   "file": "app/domain/pricing.py",
+   "line": 141,
+   "operator": "ROR",
+   "change": "< → <=",
+   "status": "KILLED",
+   "killed_by": "test_quote_two_variable_bva[TC-QTE-BVA2-001]",
+   "seconds": 1.29
+  },
+  {
+   "id": "pricing-041",
+   "file": "app/domain/pricing.py",
+   "line": 141,
+   "operator": "ROR",
+   "change": "< → >",
+   "status": "KILLED",
+   "killed_by": "test_quote_two_variable_bva[TC-QTE-BVA2-002]",
+   "seconds": 1.3
+  },
+  {
+   "id": "pricing-042",
+   "file": "app/domain/pricing.py",
+   "line": 141,
+   "operator": "CRP",
+   "change": "1 → 2",
+   "status": "KILLED",
+   "killed_by": "test_quote_two_variable_bva[TC-QTE-BVA2-001]",
+   "seconds": 1.33
+  },
+  {
+   "id": "pricing-043",
+   "file": "app/domain/pricing.py",
+   "line": 141,
+   "operator": "CRP",
+   "change": "1 → 0",
+   "status": "KILLED",
+   "killed_by": "test_quote_loop[TC-WB-LOOP-001]",
+   "seconds": 3.68
+  },
+  {
+   "id": "pricing-044",
+   "file": "app/domain/pricing.py",
+   "line": 143,
+   "operator": "ROR",
+   "change": "< → <=",
+   "status": "KILLED",
+   "killed_by": "test_quote_two_variable_bva[TC-QTE-BVA2-003]",
+   "seconds": 1.32
+  },
+  {
+   "id": "pricing-045",
+   "file": "app/domain/pricing.py",
+   "line": 143,
+   "operator": "ROR",
+   "change": "< → >",
+   "status": "KILLED",
+   "killed_by": "test_quote_two_variable_bva[TC-QTE-BVA2-001]",
+   "seconds": 1.33
+  },
+  {
+   "id": "pricing-046",
+   "file": "app/domain/pricing.py",
+   "line": 143,
+   "operator": "CRP",
+   "change": "1 → 2",
+   "status": "KILLED",
+   "killed_by": "test_quote_two_variable_bva[TC-QTE-BVA2-003]",
+   "seconds": 1.33
+  },
+  {
+   "id": "pricing-047",
+   "file": "app/domain/pricing.py",
+   "line": 143,
+   "operator": "CRP",
+   "change": "1 → 0",
+   "status": "KILLED",
+   "killed_by": "test_quote_zero_rooms",
+   "seconds": 3.49
+  },
+  {
+   "id": "pricing-048",
+   "file": "app/domain/pricing.py",
+   "line": 145,
+   "operator": "LCR",
+   "change": "or → and",
+   "status": "KILLED",
+   "killed_by": "test_extra_bed_guard[TC-WB-MCDC-010]",
+   "seconds": 3.61
+  },
+  {
+   "id": "pricing-049",
+   "file": "app/domain/pricing.py",
+   "line": 145,
+   "operator": "ROR",
+   "change": "< → <=",
+   "status": "KILLED",
+   "killed_by": "test_quote_two_variable_bva[TC-QTE-BVA2-001]",
+   "seconds": 1.28
+  },
+  {
+   "id": "pricing-050",
+   "file": "app/domain/pricing.py",
+   "line": 145,
+   "operator": "ROR",
+   "change": "< → >",
+   "status": "KILLED",
+   "killed_by": "test_pairwise_quote[TC-QTE-PW-002]",
+   "seconds": 1.32
+  },
+  {
+   "id": "pricing-051",
+   "file": "app/domain/pricing.py",
+   "line": 145,
+   "operator": "CRP",
+   "change": "0 → 1",
+   "status": "KILLED",
+   "killed_by": "test_quote_two_variable_bva[TC-QTE-BVA2-001]",
+   "seconds": 1.26
+  },
+  {
+   "id": "pricing-052",
+   "file": "app/domain/pricing.py",
+   "line": 145,
+   "operator": "CRP",
+   "change": "0 → -1",
+   "status": "KILLED",
+   "killed_by": "test_extra_bed_guard[TC-WB-MCDC-010]",
+   "seconds": 3.67
+  },
+  {
+   "id": "pricing-053",
+   "file": "app/domain/pricing.py",
+   "line": 145,
+   "operator": "ROR",
+   "change": "> → >=",
+   "status": "KILLED",
+   "killed_by": "test_pairwise_quote[TC-QTE-PW-002]",
+   "seconds": 1.32
+  },
+  {
+   "id": "pricing-054",
+   "file": "app/domain/pricing.py",
+   "line": 145,
+   "operator": "ROR",
+   "change": "> → <",
+   "status": "KILLED",
+   "killed_by": "test_quote_two_variable_bva[TC-QTE-BVA2-001]",
+   "seconds": 1.27
+  },
+  {
+   "id": "pricing-055",
+   "file": "app/domain/pricing.py",
+   "line": 147,
+   "operator": "LCR",
+   "change": "and → or",
+   "status": "KILLED",
+   "killed_by": "test_quote_two_variable_bva[TC-QTE-BVA2-001]",
+   "seconds": 1.33
+  },
+  {
+   "id": "pricing-056",
+   "file": "app/domain/pricing.py",
+   "line": 147,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_pairwise_quote[TC-QTE-PW-003]",
+   "seconds": 1.46
+  },
+  {
+   "id": "pricing-057",
+   "file": "app/domain/pricing.py",
+   "line": 150,
+   "operator": "AOR",
+   "change": "+ → -",
+   "status": "KILLED",
+   "killed_by": "test_pairwise_quote[TC-QTE-PW-003]",
+   "seconds": 1.39
+  },
+  {
+   "id": "pricing-058",
+   "file": "app/domain/pricing.py",
+   "line": 150,
+   "operator": "AOR",
+   "change": "* → /",
+   "status": "KILLED",
+   "killed_by": "test_quote_two_variable_bva[TC-QTE-BVA2-001]",
+   "seconds": 1.47
+  },
+  {
+   "id": "pricing-059",
+   "file": "app/domain/pricing.py",
+   "line": 150,
+   "operator": "AOR",
+   "change": "* → /",
+   "status": "KILLED",
+   "killed_by": "test_quote_two_variable_bva[TC-QTE-BVA2-001]",
+   "seconds": 1.45
+  },
+  {
+   "id": "pricing-060",
+   "file": "app/domain/pricing.py",
+   "line": 151,
+   "operator": "AOR",
+   "change": "+ → -",
+   "status": "KILLED",
+   "killed_by": "test_pairwise_quote[TC-QTE-PW-008]",
+   "seconds": 1.35
+  },
+  {
+   "id": "pricing-061",
+   "file": "app/domain/pricing.py",
+   "line": 156,
+   "operator": "AOR",
+   "change": "+ → -",
+   "status": "KILLED",
+   "killed_by": "test_pairwise_quote[TC-QTE-PW-001]",
+   "seconds": 1.3
+  },
+  {
+   "id": "pricing-062",
+   "file": "app/domain/pricing.py",
+   "line": 159,
+   "operator": "AOR",
+   "change": "* → /",
+   "status": "KILLED",
+   "killed_by": "test_quote_two_variable_bva[TC-QTE-BVA2-003]",
+   "seconds": 1.33
+  },
+  {
+   "id": "pricing-063",
+   "file": "app/domain/pricing.py",
+   "line": 162,
+   "operator": "AOR",
+   "change": "* → /",
+   "status": "KILLED",
+   "killed_by": "test_quote_two_variable_bva[TC-QTE-BVA2-001]",
+   "seconds": 1.31
+  },
+  {
+   "id": "pricing-064",
+   "file": "app/domain/pricing.py",
+   "line": 163,
+   "operator": "AOR",
+   "change": "* → /",
+   "status": "KILLED",
+   "killed_by": "test_quote_two_variable_bva[TC-QTE-BVA2-001]",
+   "seconds": 1.32
+  },
+  {
+   "id": "pricing-065",
+   "file": "app/domain/pricing.py",
+   "line": 165,
+   "operator": "AOR",
+   "change": "+ → -",
+   "status": "KILLED",
+   "killed_by": "test_pairwise_quote[TC-QTE-PW-003]",
+   "seconds": 1.31
+  },
+  {
+   "id": "pricing-066",
+   "file": "app/domain/pricing.py",
+   "line": 165,
+   "operator": "AOR",
+   "change": "+ → -",
+   "status": "KILLED",
+   "killed_by": "test_pairwise_quote[TC-QTE-PW-004]",
+   "seconds": 1.32
+  },
+  {
+   "id": "pricing-067",
+   "file": "app/domain/pricing.py",
+   "line": 166,
+   "operator": "AOR",
+   "change": "* → /",
+   "status": "KILLED",
+   "killed_by": "test_prop_discount_cap",
+   "seconds": 4.05
+  },
+  {
+   "id": "pricing-068",
+   "file": "app/domain/pricing.py",
+   "line": 167,
+   "operator": "ROR",
+   "change": "> → >=",
+   "status": "KILLED",
+   "killed_by": "test_exact_cap",
+   "seconds": 3.45
+  },
+  {
+   "id": "pricing-069",
+   "file": "app/domain/pricing.py",
+   "line": 167,
+   "operator": "ROR",
+   "change": "> → <",
+   "status": "KILLED",
+   "killed_by": "test_pairwise_quote[TC-QTE-PW-001]",
+   "seconds": 1.34
+  },
+  {
+   "id": "pricing-070",
+   "file": "app/domain/pricing.py",
+   "line": 170,
+   "operator": "AOR",
+   "change": "- → +",
+   "status": "KILLED",
+   "killed_by": "test_pairwise_quote[TC-QTE-PW-003]",
+   "seconds": 1.28
+  },
+  {
+   "id": "pricing-071",
+   "file": "app/domain/pricing.py",
+   "line": 172,
+   "operator": "AOR",
+   "change": "* → /",
+   "status": "KILLED",
+   "killed_by": "test_pairwise_quote[TC-QTE-PW-001]",
+   "seconds": 1.26
+  },
+  {
+   "id": "pricing-072",
+   "file": "app/domain/pricing.py",
+   "line": 174,
+   "operator": "AOR",
+   "change": "+ → -",
+   "status": "KILLED",
+   "killed_by": "test_quote_two_variable_bva[TC-QTE-BVA2-001]",
+   "seconds": 1.28
+  },
+  {
+   "id": "pricing-073",
+   "file": "app/domain/pricing.py",
+   "line": 186,
+   "operator": "ROR",
+   "change": "in → not in",
+   "status": "KILLED",
+   "killed_by": "test_benefits_decision_table[TC-BEN-DT-001]",
+   "seconds": 3.18
+  },
+  {
+   "id": "pricing-074",
+   "file": "app/domain/pricing.py",
+   "line": 186,
+   "operator": "LCR",
+   "change": "or → and",
+   "status": "KILLED",
+   "killed_by": "test_benefits_decision_table[TC-BEN-DT-001]",
+   "seconds": 3.33
+  },
+  {
+   "id": "pricing-075",
+   "file": "app/domain/pricing.py",
+   "line": 187,
+   "operator": "ROR",
+   "change": ">= → >",
+   "status": "KILLED",
+   "killed_by": "test_benefits_decision_table[TC-BEN-DT-001]",
+   "seconds": 3.32
+  },
+  {
+   "id": "pricing-076",
+   "file": "app/domain/pricing.py",
+   "line": 187,
+   "operator": "ROR",
+   "change": ">= → <=",
+   "status": "KILLED",
+   "killed_by": "test_benefits_decision_table[TC-BEN-DT-005]",
+   "seconds": 3.4
+  },
+  {
+   "id": "pricing-077",
+   "file": "app/domain/pricing.py",
+   "line": 187,
+   "operator": "CRP",
+   "change": "3 → 4",
+   "status": "KILLED",
+   "killed_by": "test_benefits_decision_table[TC-BEN-DT-001]",
+   "seconds": 3.37
+  },
+  {
+   "id": "pricing-078",
+   "file": "app/domain/pricing.py",
+   "line": 187,
+   "operator": "CRP",
+   "change": "3 → 2",
+   "status": "KILLED",
+   "killed_by": "test_benefits_decision_table[TC-BEN-DT-005]",
+   "seconds": 3.38
+  },
+  {
+   "id": "pricing-079",
+   "file": "app/domain/pricing.py",
+   "line": 188,
+   "operator": "ROR",
+   "change": ">= → >",
+   "status": "KILLED",
+   "killed_by": "test_benefits_decision_table[TC-BEN-DT-009]",
+   "seconds": 3.27
+  },
+  {
+   "id": "pricing-080",
+   "file": "app/domain/pricing.py",
+   "line": 188,
+   "operator": "ROR",
+   "change": ">= → <=",
+   "status": "KILLED",
+   "killed_by": "test_benefits_decision_table[TC-BEN-DT-011]",
+   "seconds": 3.31
+  },
+  {
+   "id": "pricing-081",
+   "file": "app/domain/pricing.py",
+   "line": 188,
+   "operator": "CRP",
+   "change": "30 → 31",
+   "status": "KILLED",
+   "killed_by": "test_benefits_decision_table[TC-BEN-DT-009]",
+   "seconds": 3.31
+  },
+  {
+   "id": "pricing-082",
+   "file": "app/domain/pricing.py",
+   "line": 188,
+   "operator": "CRP",
+   "change": "30 → 29",
+   "status": "KILLED",
+   "killed_by": "test_benefits_decision_table[TC-BEN-DT-011]",
+   "seconds": 3.3
+  },
+  {
+   "id": "pricing-083",
+   "file": "app/domain/pricing.py",
+   "line": 189,
+   "operator": "ROR",
+   "change": "!= → ==",
+   "status": "KILLED",
+   "killed_by": "test_benefits_decision_table[TC-BEN-DT-001]",
+   "seconds": 3.37
+  },
+  {
+   "id": "pricing-084",
+   "file": "app/domain/pricing.py",
+   "line": 190,
+   "operator": "LCR",
+   "change": "and → or",
+   "status": "KILLED",
+   "killed_by": "test_benefits_decision_table[TC-BEN-DT-002]",
+   "seconds": 3.26
+  },
+  {
+   "id": "pricing-085",
+   "file": "app/domain/pricing.py",
+   "line": 191,
+   "operator": "LCR",
+   "change": "or → and",
+   "status": "KILLED",
+   "killed_by": "test_benefits_decision_table[TC-BEN-DT-003]",
+   "seconds": 3.34
+  },
+  {
+   "id": "pricing-086",
+   "file": "app/domain/pricing.py",
+   "line": 191,
+   "operator": "LCR",
+   "change": "and → or",
+   "status": "KILLED",
+   "killed_by": "test_benefits_decision_table[TC-BEN-DT-011]",
+   "seconds": 3.39
+  },
+  {
+   "id": "pricing-087",
+   "file": "app/domain/pricing.py",
+   "line": 196,
+   "operator": "LCR",
+   "change": "and → or",
+   "status": "KILLED",
+   "killed_by": "test_benefits_decision_table[TC-BEN-DT-002]",
+   "seconds": 3.32
+  },
+  {
+   "id": "pricing-088",
+   "file": "app/domain/pricing.py",
+   "line": 196,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_benefits_decision_table[TC-BEN-DT-011]",
+   "seconds": 3.49
+  },
+  {
+   "id": "pricing-089",
+   "file": "app/domain/pricing.py",
+   "line": 196,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_benefits_decision_table[TC-BEN-DT-002]",
+   "seconds": 3.39
+  },
+  {
+   "id": "cancellation-000",
+   "file": "app/domain/cancellation.py",
+   "line": 35,
+   "operator": "AOR",
+   "change": "- → +",
+   "status": "KILLED",
+   "killed_by": "test_refund_amount_never_negative",
+   "seconds": 3.26
+  },
+  {
+   "id": "cancellation-001",
+   "file": "app/domain/cancellation.py",
+   "line": 35,
+   "operator": "AOR",
+   "change": "/ → *",
+   "status": "KILLED",
+   "killed_by": "test_prop_refund_bounds",
+   "seconds": 5.55
+  },
+  {
+   "id": "cancellation-002",
+   "file": "app/domain/cancellation.py",
+   "line": 35,
+   "operator": "AOR",
+   "change": "* → /",
+   "status": "KILLED",
+   "killed_by": "test_prop_refund_bounds",
+   "seconds": 4.36
+  },
+  {
+   "id": "cancellation-003",
+   "file": "app/domain/cancellation.py",
+   "line": 26,
+   "operator": "BRV",
+   "change": "True → False",
+   "status": "KILLED",
+   "killed_by": "test_refund_immutable",
+   "seconds": 3.48
+  },
+  {
+   "id": "cancellation-004",
+   "file": "app/domain/cancellation.py",
+   "line": 40,
+   "operator": "BRV",
+   "change": "False → True",
+   "status": "KILLED",
+   "killed_by": "test_refund_band[TC-CAN-BVA-001]",
+   "seconds": 1.28
+  },
+  {
+   "id": "cancellation-005",
+   "file": "app/domain/cancellation.py",
+   "line": 43,
+   "operator": "BRV",
+   "change": "True → False",
+   "status": "KILLED",
+   "killed_by": "test_refund_decision_table[TC-CAN-DT-001]",
+   "seconds": 3.39
+  },
+  {
+   "id": "cancellation-006",
+   "file": "app/domain/cancellation.py",
+   "line": 44,
+   "operator": "ROR",
+   "change": "< → <=",
+   "status": "KILLED",
+   "killed_by": "test_refund_band[TC-CAN-BVA-002]",
+   "seconds": 1.24
+  },
+  {
+   "id": "cancellation-007",
+   "file": "app/domain/cancellation.py",
+   "line": 44,
+   "operator": "ROR",
+   "change": "< → >",
+   "status": "KILLED",
+   "killed_by": "test_refund_band[TC-CAN-BVA-001]",
+   "seconds": 1.28
+  },
+  {
+   "id": "cancellation-008",
+   "file": "app/domain/cancellation.py",
+   "line": 44,
+   "operator": "CRP",
+   "change": "0 → 1",
+   "status": "KILLED",
+   "killed_by": "test_refund_band[TC-CAN-BVA-002]",
+   "seconds": 1.31
+  },
+  {
+   "id": "cancellation-009",
+   "file": "app/domain/cancellation.py",
+   "line": 44,
+   "operator": "CRP",
+   "change": "0 → -1",
+   "status": "KILLED",
+   "killed_by": "test_refund_band[TC-CAN-BVA-001]",
+   "seconds": 1.28
+  },
+  {
+   "id": "cancellation-010",
+   "file": "app/domain/cancellation.py",
+   "line": 46,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_refund_band[TC-CAN-BVA-004]",
+   "seconds": 1.27
+  },
+  {
+   "id": "cancellation-011",
+   "file": "app/domain/cancellation.py",
+   "line": 47,
+   "operator": "BRV",
+   "change": "False → True",
+   "status": "KILLED",
+   "killed_by": "test_refund_decision_table[TC-CAN-DT-002]",
+   "seconds": 3.5
+  },
+  {
+   "id": "cancellation-012",
+   "file": "app/domain/cancellation.py",
+   "line": 48,
+   "operator": "ROR",
+   "change": "== → !=",
+   "status": "KILLED",
+   "killed_by": "test_refund_band[TC-CAN-BVA-002]",
+   "seconds": 1.25
+  },
+  {
+   "id": "cancellation-013",
+   "file": "app/domain/cancellation.py",
+   "line": 48,
+   "operator": "LCR",
+   "change": "or → and",
+   "status": "KILLED",
+   "killed_by": "test_refund_decision_table[TC-CAN-DT-005]",
+   "seconds": 3.34
+  },
+  {
+   "id": "cancellation-014",
+   "file": "app/domain/cancellation.py",
+   "line": 49,
+   "operator": "ROR",
+   "change": ">= → >",
+   "status": "KILLED",
+   "killed_by": "test_refund_band[TC-CAN-BVA-007]",
+   "seconds": 1.33
+  },
+  {
+   "id": "cancellation-015",
+   "file": "app/domain/cancellation.py",
+   "line": 49,
+   "operator": "ROR",
+   "change": ">= → <=",
+   "status": "KILLED",
+   "killed_by": "test_refund_band[TC-CAN-BVA-002]",
+   "seconds": 1.41
+  },
+  {
+   "id": "cancellation-016",
+   "file": "app/domain/cancellation.py",
+   "line": 50,
+   "operator": "BRV",
+   "change": "False → True",
+   "status": "KILLED",
+   "killed_by": "test_refund_decision_table[TC-CAN-DT-003]",
+   "seconds": 3.47
+  },
+  {
+   "id": "cancellation-017",
+   "file": "app/domain/cancellation.py",
+   "line": 51,
+   "operator": "ROR",
+   "change": ">= → >",
+   "status": "KILLED",
+   "killed_by": "test_refund_band[TC-CAN-BVA-004]",
+   "seconds": 1.29
+  },
+  {
+   "id": "cancellation-018",
+   "file": "app/domain/cancellation.py",
+   "line": 51,
+   "operator": "ROR",
+   "change": ">= → <=",
+   "status": "KILLED",
+   "killed_by": "test_refund_band[TC-CAN-BVA-002]",
+   "seconds": 1.33
+  },
+  {
+   "id": "cancellation-019",
+   "file": "app/domain/cancellation.py",
+   "line": 53,
+   "operator": "BRV",
+   "change": "False → True",
+   "status": "KILLED",
+   "killed_by": "test_refund_decision_table[TC-CAN-DT-005]",
+   "seconds": 3.52
+  },
+  {
+   "id": "cancellation-020",
+   "file": "app/domain/cancellation.py",
+   "line": 54,
+   "operator": "BRV",
+   "change": "False → True",
+   "status": "KILLED",
+   "killed_by": "test_refund_decision_table[TC-CAN-DT-004]",
+   "seconds": 3.58
+  },
+  {
+   "id": "cancellation-021",
+   "file": "app/domain/cancellation.py",
+   "line": 56,
+   "operator": "BRV",
+   "change": "False → True",
+   "status": "KILLED",
+   "killed_by": "test_refund_decision_table[TC-CAN-DT-007]",
+   "seconds": 3.34
+  },
+  {
+   "id": "cancellation-022",
+   "file": "app/domain/cancellation.py",
+   "line": 57,
+   "operator": "BRV",
+   "change": "False → True",
+   "status": "KILLED",
+   "killed_by": "test_refund_decision_table[TC-CAN-DT-006]",
+   "seconds": 3.3
+  },
+  {
+   "id": "cancellation-023",
+   "file": "app/domain/cancellation.py",
+   "line": 70,
+   "operator": "ROR",
+   "change": "< → <=",
+   "status": "KILLED",
+   "killed_by": "test_late_fee_zero_tariff",
+   "seconds": 3.42
+  },
+  {
+   "id": "cancellation-024",
+   "file": "app/domain/cancellation.py",
+   "line": 70,
+   "operator": "ROR",
+   "change": "< → >",
+   "status": "KILLED",
+   "killed_by": "test_late_checkout[TC-CHK-BVA-001]",
+   "seconds": 1.3
+  },
+  {
+   "id": "cancellation-025",
+   "file": "app/domain/cancellation.py",
+   "line": 70,
+   "operator": "CRP",
+   "change": "0 → 1",
+   "status": "KILLED",
+   "killed_by": "test_late_fee_zero_tariff",
+   "seconds": 3.35
+  },
+  {
+   "id": "cancellation-026",
+   "file": "app/domain/cancellation.py",
+   "line": 70,
+   "operator": "CRP",
+   "change": "0 → -1",
+   "status": "KILLED",
+   "killed_by": "test_late_fee_paths[TC-WB-DF-001]",
+   "seconds": 3.44
+  },
+  {
+   "id": "cancellation-027",
+   "file": "app/domain/cancellation.py",
+   "line": 72,
+   "operator": "ROR",
+   "change": "<= → <",
+   "status": "KILLED",
+   "killed_by": "test_late_checkout[TC-CHK-BVA-002]",
+   "seconds": 1.36
+  },
+  {
+   "id": "cancellation-028",
+   "file": "app/domain/cancellation.py",
+   "line": 72,
+   "operator": "ROR",
+   "change": "<= → >=",
+   "status": "KILLED",
+   "killed_by": "test_late_checkout[TC-CHK-BVA-001]",
+   "seconds": 1.29
+  },
+  {
+   "id": "cancellation-029",
+   "file": "app/domain/cancellation.py",
+   "line": 74,
+   "operator": "ROR",
+   "change": "<= → <",
+   "status": "KILLED",
+   "killed_by": "test_late_checkout[TC-CHK-BVA-005]",
+   "seconds": 1.3
+  },
+  {
+   "id": "cancellation-030",
+   "file": "app/domain/cancellation.py",
+   "line": 74,
+   "operator": "ROR",
+   "change": "<= → >=",
+   "status": "KILLED",
+   "killed_by": "test_late_checkout[TC-CHK-BVA-003]",
+   "seconds": 1.32
+  },
+  {
+   "id": "cancellation-031",
+   "file": "app/domain/cancellation.py",
+   "line": 76,
+   "operator": "ROR",
+   "change": "<= → <",
+   "status": "KILLED",
+   "killed_by": "test_late_checkout[TC-CHK-BVA-008]",
+   "seconds": 1.32
+  },
+  {
+   "id": "cancellation-032",
+   "file": "app/domain/cancellation.py",
+   "line": 76,
+   "operator": "ROR",
+   "change": "<= → >=",
+   "status": "KILLED",
+   "killed_by": "test_late_checkout[TC-CHK-BVA-006]",
+   "seconds": 1.34
+  },
+  {
+   "id": "cancellation-033",
+   "file": "app/domain/cancellation.py",
+   "line": 80,
+   "operator": "AOR",
+   "change": "/ → *",
+   "status": "KILLED",
+   "killed_by": "test_late_checkout[TC-CHK-BVA-003]",
+   "seconds": 1.33
+  },
+  {
+   "id": "cancellation-034",
+   "file": "app/domain/cancellation.py",
+   "line": 80,
+   "operator": "AOR",
+   "change": "* → /",
+   "status": "KILLED",
+   "killed_by": "test_late_checkout[TC-CHK-BVA-001]",
+   "seconds": 1.35
+  },
+  {
+   "id": "payment-000",
+   "file": "app/domain/payment.py",
+   "line": 18,
+   "operator": "ROR",
+   "change": "== → !=",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-008]",
+   "seconds": 1.33
+  },
+  {
+   "id": "payment-001",
+   "file": "app/domain/payment.py",
+   "line": 18,
+   "operator": "CRP",
+   "change": "1 → 2",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-008]",
+   "seconds": 1.27
+  },
+  {
+   "id": "payment-002",
+   "file": "app/domain/payment.py",
+   "line": 18,
+   "operator": "CRP",
+   "change": "1 → 0",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-008]",
+   "seconds": 1.29
+  },
+  {
+   "id": "payment-003",
+   "file": "app/domain/payment.py",
+   "line": 20,
+   "operator": "ROR",
+   "change": "> → >=",
+   "status": "SURVIVED",
+   "killed_by": "",
+   "seconds": 3.3
+  },
+  {
+   "id": "payment-004",
+   "file": "app/domain/payment.py",
+   "line": 20,
+   "operator": "ROR",
+   "change": "> → <",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-008]",
+   "seconds": 1.36
+  },
+  {
+   "id": "payment-005",
+   "file": "app/domain/payment.py",
+   "line": 20,
+   "operator": "CRP",
+   "change": "9 → 10",
+   "status": "KILLED",
+   "killed_by": "test_card_number[TC-PAY-ECP-009]",
+   "seconds": 3.51
+  },
+  {
+   "id": "payment-006",
+   "file": "app/domain/payment.py",
+   "line": 20,
+   "operator": "CRP",
+   "change": "9 → 8",
+   "status": "SURVIVED",
+   "killed_by": "",
+   "seconds": 3.44
+  },
+  {
+   "id": "payment-007",
+   "file": "app/domain/payment.py",
+   "line": 23,
+   "operator": "ROR",
+   "change": "== → !=",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-008]",
+   "seconds": 1.31
+  },
+  {
+   "id": "payment-008",
+   "file": "app/domain/payment.py",
+   "line": 23,
+   "operator": "CRP",
+   "change": "0 → 1",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-008]",
+   "seconds": 1.34
+  },
+  {
+   "id": "payment-009",
+   "file": "app/domain/payment.py",
+   "line": 23,
+   "operator": "CRP",
+   "change": "0 → -1",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-008]",
+   "seconds": 1.33
+  },
+  {
+   "id": "payment-010",
+   "file": "app/domain/payment.py",
+   "line": 27,
+   "operator": "LCR",
+   "change": "or → and",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-008]",
+   "seconds": 1.31
+  },
+  {
+   "id": "payment-011",
+   "file": "app/domain/payment.py",
+   "line": 28,
+   "operator": "LCR",
+   "change": "or → and",
+   "status": "KILLED",
+   "killed_by": "test_card_number[TC-PAY-ECP-013]",
+   "seconds": 3.28
+  },
+  {
+   "id": "payment-012",
+   "file": "app/domain/payment.py",
+   "line": 28,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-008]",
+   "seconds": 1.31
+  },
+  {
+   "id": "payment-013",
+   "file": "app/domain/payment.py",
+   "line": 28,
+   "operator": "ROR",
+   "change": "!= → ==",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-008]",
+   "seconds": 1.36
+  },
+  {
+   "id": "payment-014",
+   "file": "app/domain/payment.py",
+   "line": 28,
+   "operator": "CRP",
+   "change": "16 → 17",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-008]",
+   "seconds": 1.23
+  },
+  {
+   "id": "payment-015",
+   "file": "app/domain/payment.py",
+   "line": 28,
+   "operator": "CRP",
+   "change": "16 → 15",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-008]",
+   "seconds": 1.32
+  },
+  {
+   "id": "payment-016",
+   "file": "app/domain/payment.py",
+   "line": 30,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-008]",
+   "seconds": 1.23
+  },
+  {
+   "id": "payment-017",
+   "file": "app/domain/payment.py",
+   "line": 32,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-008]",
+   "seconds": 1.27
+  },
+  {
+   "id": "payment-018",
+   "file": "app/domain/payment.py",
+   "line": 32,
+   "operator": "ROR",
+   "change": "<= → <",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-012]",
+   "seconds": 1.24
+  },
+  {
+   "id": "payment-019",
+   "file": "app/domain/payment.py",
+   "line": 32,
+   "operator": "ROR",
+   "change": "<= → >=",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-008]",
+   "seconds": 1.24
+  },
+  {
+   "id": "payment-020",
+   "file": "app/domain/payment.py",
+   "line": 32,
+   "operator": "ROR",
+   "change": "<= → <",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-011]",
+   "seconds": 1.24
+  },
+  {
+   "id": "payment-021",
+   "file": "app/domain/payment.py",
+   "line": 32,
+   "operator": "ROR",
+   "change": "<= → >=",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-008]",
+   "seconds": 1.3
+  },
+  {
+   "id": "payment-022",
+   "file": "app/domain/payment.py",
+   "line": 32,
+   "operator": "CRP",
+   "change": "1 → 2",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-012]",
+   "seconds": 1.26
+  },
+  {
+   "id": "payment-023",
+   "file": "app/domain/payment.py",
+   "line": 32,
+   "operator": "CRP",
+   "change": "1 → 0",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-013]",
+   "seconds": 1.28
+  },
+  {
+   "id": "payment-024",
+   "file": "app/domain/payment.py",
+   "line": 32,
+   "operator": "CRP",
+   "change": "12 → 13",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-016]",
+   "seconds": 1.27
+  },
+  {
+   "id": "payment-025",
+   "file": "app/domain/payment.py",
+   "line": 32,
+   "operator": "CRP",
+   "change": "12 → 11",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-011]",
+   "seconds": 1.3
+  },
+  {
+   "id": "payment-026",
+   "file": "app/domain/payment.py",
+   "line": 34,
+   "operator": "ROR",
+   "change": "< → <=",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-009]",
+   "seconds": 1.28
+  },
+  {
+   "id": "payment-027",
+   "file": "app/domain/payment.py",
+   "line": 34,
+   "operator": "ROR",
+   "change": "< → >",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-008]",
+   "seconds": 1.31
+  },
+  {
+   "id": "payment-028",
+   "file": "app/domain/payment.py",
+   "line": 36,
+   "operator": "ROR",
+   "change": "> → >=",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-011]",
+   "seconds": 1.24
+  },
+  {
+   "id": "payment-029",
+   "file": "app/domain/payment.py",
+   "line": 36,
+   "operator": "ROR",
+   "change": "> → <",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-009]",
+   "seconds": 1.33
+  },
+  {
+   "id": "payment-030",
+   "file": "app/domain/payment.py",
+   "line": 36,
+   "operator": "AOR",
+   "change": "+ → -",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-009]",
+   "seconds": 1.23
+  },
+  {
+   "id": "payment-031",
+   "file": "app/domain/payment.py",
+   "line": 38,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-009]",
+   "seconds": 1.33
+  },
+  {
+   "id": "payment-032",
+   "file": "app/domain/payment.py",
+   "line": 38,
+   "operator": "LCR",
+   "change": "and → or",
+   "status": "KILLED",
+   "killed_by": "test_cvv[TC-PAY-ECP-018]",
+   "seconds": 3.39
+  },
+  {
+   "id": "payment-033",
+   "file": "app/domain/payment.py",
+   "line": 38,
+   "operator": "ROR",
+   "change": "== → !=",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-009]",
+   "seconds": 1.27
+  },
+  {
+   "id": "payment-034",
+   "file": "app/domain/payment.py",
+   "line": 38,
+   "operator": "CRP",
+   "change": "3 → 4",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-009]",
+   "seconds": 1.34
+  },
+  {
+   "id": "payment-035",
+   "file": "app/domain/payment.py",
+   "line": 38,
+   "operator": "CRP",
+   "change": "3 → 2",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-009]",
+   "seconds": 1.34
+  },
+  {
+   "id": "payment-036",
+   "file": "app/domain/payment.py",
+   "line": 40,
+   "operator": "AOR",
+   "change": "+ → -",
+   "status": "KILLED",
+   "killed_by": "test_card_expiry[TC-PAY-BVA-009]",
+   "seconds": 1.3
+  },
+  {
+   "id": "payment-037",
+   "file": "app/domain/payment.py",
+   "line": 44,
+   "operator": "LCR",
+   "change": "or → and",
+   "status": "KILLED",
+   "killed_by": "test_upi[TC-PAY-ECP-003]",
+   "seconds": 3.4
+  },
+  {
+   "id": "payment-038",
+   "file": "app/domain/payment.py",
+   "line": 44,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_upi[TC-PAY-ECP-001]",
+   "seconds": 3.43
+  },
+  {
+   "id": "payment-039",
+   "file": "app/domain/payment.py",
+   "line": 44,
+   "operator": "UOD",
+   "change": "not x → x",
+   "status": "KILLED",
+   "killed_by": "test_upi[TC-PAY-ECP-001]",
+   "seconds": 3.38
+  },
+  {
+   "id": "payment-040",
+   "file": "app/domain/payment.py",
+   "line": 54,
+   "operator": "ROR",
+   "change": "< → <=",
+   "status": "KILLED",
+   "killed_by": "test_payment_amount[TC-PAY-BVA-002]",
+   "seconds": 1.3
+  },
+  {
+   "id": "payment-041",
+   "file": "app/domain/payment.py",
+   "line": 54,
+   "operator": "ROR",
+   "change": "< → >",
+   "status": "KILLED",
+   "killed_by": "test_payment_amount[TC-PAY-BVA-001]",
+   "seconds": 1.37
+  },
+  {
+   "id": "payment-042",
+   "file": "app/domain/payment.py",
+   "line": 56,
+   "operator": "ROR",
+   "change": "> → >=",
+   "status": "KILLED",
+   "killed_by": "test_payment_amount[TC-PAY-BVA-006]",
+   "seconds": 1.3
+  },
+  {
+   "id": "payment-043",
+   "file": "app/domain/payment.py",
+   "line": 56,
+   "operator": "ROR",
+   "change": "> → <",
+   "status": "KILLED",
+   "killed_by": "test_payment_amount[TC-PAY-BVA-002]",
+   "seconds": 1.25
+  },
+  {
+   "id": "state-000",
+   "file": "app/domain/state.py",
+   "line": 23,
+   "operator": "ROR",
+   "change": "not in → in",
+   "status": "KILLED",
+   "killed_by": "test_state_table[TC-STM-001]",
+   "seconds": 3.68
+  },
+  {
+   "id": "state-001",
+   "file": "app/domain/state.py",
+   "line": 25,
+   "operator": "ROR",
+   "change": "not in → in",
+   "status": "KILLED",
+   "killed_by": "test_state_table[TC-STM-001]",
+   "seconds": 3.6
+  },
+  {
+   "id": "state-002",
+   "file": "app/domain/state.py",
+   "line": 28,
+   "operator": "ROR",
+   "change": "not in → in",
+   "status": "KILLED",
+   "killed_by": "test_prop_state_machine",
+   "seconds": 2.91
+  },
+  {
+   "id": "state-003",
+   "file": "app/domain/state.py",
+   "line": 34,
+   "operator": "ROR",
+   "change": "in → not in",
+   "status": "KILLED",
+   "killed_by": "test_final_states_have_no_exits",
+   "seconds": 3.57
+  },
+  {
+   "id": "metrics-000",
+   "file": "app/domain/metrics.py",
+   "line": 17,
+   "operator": "ROR",
+   "change": "<= → <",
+   "status": "KILLED",
+   "killed_by": "test_occupancy_bva[TC-RPT-BVA-007]",
+   "seconds": 3.54
+  },
+  {
+   "id": "metrics-001",
+   "file": "app/domain/metrics.py",
+   "line": 17,
+   "operator": "ROR",
+   "change": "<= → >=",
+   "status": "KILLED",
+   "killed_by": "test_occupancy_bva[TC-RPT-BVA-001]",
+   "seconds": 3.53
+  },
+  {
+   "id": "metrics-002",
+   "file": "app/domain/metrics.py",
+   "line": 17,
+   "operator": "CRP",
+   "change": "0 → 1",
+   "status": "SURVIVED",
+   "killed_by": "",
+   "seconds": 3.56
+  },
+  {
+   "id": "metrics-003",
+   "file": "app/domain/metrics.py",
+   "line": 17,
+   "operator": "CRP",
+   "change": "0 → -1",
+   "status": "KILLED",
+   "killed_by": "test_occupancy_bva[TC-RPT-BVA-007]",
+   "seconds": 3.37
+  },
+  {
+   "id": "metrics-004",
+   "file": "app/domain/metrics.py",
+   "line": 19,
+   "operator": "LCR",
+   "change": "or → and",
+   "status": "KILLED",
+   "killed_by": "test_occupancy_bva[TC-RPT-BVA-005]",
+   "seconds": 3.5
+  },
+  {
+   "id": "metrics-005",
+   "file": "app/domain/metrics.py",
+   "line": 19,
+   "operator": "ROR",
+   "change": "< → <=",
+   "status": "KILLED",
+   "killed_by": "test_occupancy_bva[TC-RPT-BVA-001]",
+   "seconds": 3.34
+  },
+  {
+   "id": "metrics-006",
+   "file": "app/domain/metrics.py",
+   "line": 19,
+   "operator": "ROR",
+   "change": "< → >",
+   "status": "KILLED",
+   "killed_by": "test_occupancy_bva[TC-RPT-BVA-002]",
+   "seconds": 3.44
+  },
+  {
+   "id": "metrics-007",
+   "file": "app/domain/metrics.py",
+   "line": 19,
+   "operator": "CRP",
+   "change": "0 → 1",
+   "status": "KILLED",
+   "killed_by": "test_occupancy_bva[TC-RPT-BVA-001]",
+   "seconds": 3.31
+  },
+  {
+   "id": "metrics-008",
+   "file": "app/domain/metrics.py",
+   "line": 19,
+   "operator": "CRP",
+   "change": "0 → -1",
+   "status": "KILLED",
+   "killed_by": "test_occupancy_bva[TC-RPT-BVA-006]",
+   "seconds": 3.47
+  },
+  {
+   "id": "metrics-009",
+   "file": "app/domain/metrics.py",
+   "line": 19,
+   "operator": "ROR",
+   "change": "> → >=",
+   "status": "KILLED",
+   "killed_by": "test_occupancy_bva[TC-RPT-BVA-004]",
+   "seconds": 3.21
+  },
+  {
+   "id": "metrics-010",
+   "file": "app/domain/metrics.py",
+   "line": 19,
+   "operator": "ROR",
+   "change": "> → <",
+   "status": "KILLED",
+   "killed_by": "test_occupancy_bva[TC-RPT-BVA-001]",
+   "seconds": 3.51
+  },
+  {
+   "id": "metrics-011",
+   "file": "app/domain/metrics.py",
+   "line": 21,
+   "operator": "AOR",
+   "change": "/ → *",
+   "status": "KILLED",
+   "killed_by": "test_occupancy_bva[TC-RPT-BVA-002]",
+   "seconds": 3.4
+  },
+  {
+   "id": "metrics-012",
+   "file": "app/domain/metrics.py",
+   "line": 21,
+   "operator": "AOR",
+   "change": "* → /",
+   "status": "KILLED",
+   "killed_by": "test_occupancy_bva[TC-RPT-BVA-002]",
+   "seconds": 3.38
+  },
+  {
+   "id": "metrics-013",
+   "file": "app/domain/metrics.py",
+   "line": 25,
+   "operator": "ROR",
+   "change": "<= → <",
+   "status": "KILLED",
+   "killed_by": "test_adr_revpar[TC-RPT-ECP-002]",
+   "seconds": 3.43
+  },
+  {
+   "id": "metrics-014",
+   "file": "app/domain/metrics.py",
+   "line": 25,
+   "operator": "ROR",
+   "change": "<= → >=",
+   "status": "KILLED",
+   "killed_by": "test_adr_revpar[TC-RPT-ECP-001]",
+   "seconds": 3.5
+  },
+  {
+   "id": "metrics-015",
+   "file": "app/domain/metrics.py",
+   "line": 25,
+   "operator": "CRP",
+   "change": "0 → 1",
+   "status": "SURVIVED",
+   "killed_by": "",
+   "seconds": 3.55
+  },
+  {
+   "id": "metrics-016",
+   "file": "app/domain/metrics.py",
+   "line": 25,
+   "operator": "CRP",
+   "change": "0 → -1",
+   "status": "KILLED",
+   "killed_by": "test_adr_revpar[TC-RPT-ECP-002]",
+   "seconds": 3.48
+  },
+  {
+   "id": "metrics-017",
+   "file": "app/domain/metrics.py",
+   "line": 27,
+   "operator": "AOR",
+   "change": "/ → *",
+   "status": "KILLED",
+   "killed_by": "test_adr_revpar[TC-RPT-ECP-001]",
+   "seconds": 3.37
+  },
+  {
+   "id": "metrics-018",
+   "file": "app/domain/metrics.py",
+   "line": 31,
+   "operator": "ROR",
+   "change": "<= → <",
+   "status": "KILLED",
+   "killed_by": "test_adr_revpar[TC-RPT-ECP-005]",
+   "seconds": 3.28
+  },
+  {
+   "id": "metrics-019",
+   "file": "app/domain/metrics.py",
+   "line": 31,
+   "operator": "ROR",
+   "change": "<= → >=",
+   "status": "KILLED",
+   "killed_by": "test_adr_revpar[TC-RPT-ECP-004]",
+   "seconds": 3.31
+  },
+  {
+   "id": "metrics-020",
+   "file": "app/domain/metrics.py",
+   "line": 31,
+   "operator": "CRP",
+   "change": "0 → 1",
+   "status": "SURVIVED",
+   "killed_by": "",
+   "seconds": 3.62
+  },
+  {
+   "id": "metrics-021",
+   "file": "app/domain/metrics.py",
+   "line": 31,
+   "operator": "CRP",
+   "change": "0 → -1",
+   "status": "KILLED",
+   "killed_by": "test_adr_revpar[TC-RPT-ECP-005]",
+   "seconds": 3.37
+  },
+  {
+   "id": "metrics-022",
+   "file": "app/domain/metrics.py",
+   "line": 33,
+   "operator": "AOR",
+   "change": "/ → *",
+   "status": "KILLED",
+   "killed_by": "test_adr_revpar[TC-RPT-ECP-004]",
+   "seconds": 3.38
+  }
+ ]
+}
