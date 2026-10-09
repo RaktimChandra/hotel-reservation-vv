@@ -1,0 +1,19 @@
+line-length = 130
+target-version = "py311"
+extend-exclude = ["node_modules", "tests/e2e/vendor"]
+
+[lint]
+select = ["E", "F", "W", "I", "B", "S"]
+ignore = [
+  "E501",   # long table-driven test rows are clearer on one line
+  "E701", "E702",  # compact one-line helpers in generators
+  "B008",   # FastAPI dependency injection uses Depends() in defaults by design
+  "B905",   # zip() over equal-length literal tables
+  "S101",   # assert is how pytest works
+  "S311",   # random is used for test data, not security
+  "S603", "S607",  # tools call trusted local executables
+]
+
+[lint.per-file-ignores]
+"tests/**" = ["S105", "S106"]   # hard-coded test passwords are fixtures
+"tools/**" = ["S108", "S110"]
