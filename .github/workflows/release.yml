@@ -52,7 +52,7 @@ jobs:
         run: |
           python tools/record_demo.py
           python tools/make_video.py
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: deliverables
           path: deliverables/
